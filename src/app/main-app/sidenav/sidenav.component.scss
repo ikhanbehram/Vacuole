@@ -1,0 +1,23 @@
+.sidenav {
+  height: 100vh;
+}
+mat-sidenav {
+  position: fixed;
+  width: 15rem !important;
+}
+.toggle-button {
+  background: transparent !important;
+  border: none;
+}
+mat-icon {
+  cursor: pointer;
+}
+.sidenav-content {
+  height: 100%;
+  width: 100%;
+}
+.sidenav-text {
+  color: rgb(97, 97, 97);
+  margin-top: 2rem;
+  padding: 0rem 1rem;
+}

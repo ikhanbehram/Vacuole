@@ -1,0 +1,28 @@
+<div class="sidenav">
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened side #sidenav>
+      <div
+        class="sidenav-content"
+        fxLayout="column"
+        fxLayoutAlign="space-between start"
+      >
+        <div class="sidenav-text">
+          <p>Intro</p>
+          <p>All</p>
+          <app-mat-tree></app-mat-tree>
+        </div>
+        <div class="vacuole" fxLayout fxLayoutAlign="center center">
+          <p>Vacuole</p>
+        </div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-toolbar>
+        <mat-icon [ngStyle]="{ color: 'white' }" (click)="sidenav.toggle()"
+          >menu</mat-icon
+        >
+      </app-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

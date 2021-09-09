@@ -8,6 +8,7 @@ import { FeatureModule } from './main-app/feature.module';
 import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './material.module';
 import { LandingComponent } from './landing/landing.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, LandingComponent],
@@ -18,6 +19,7 @@ import { LandingComponent } from './landing/landing.component';
     MaterialModule,
     FeatureModule,
     AuthModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

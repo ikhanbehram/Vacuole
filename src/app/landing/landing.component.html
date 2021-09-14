@@ -1,3 +1,18 @@
-<mat-toolbar routerLink="/browse" color="primary">
-  <div class="logo"><img src="../../assets/DNAloader.svg" alt="Logo" /></div>
-</mat-toolbar>
+<section class="landing">
+  <mat-toolbar color="primary" class="mat-elevation-z2">
+    <div class="logo" routerLink="/browse">
+      <!-- <img src="../../assets/logo.png" alt="Logo" /> -->
+      <h1>Logo</h1>
+    </div>
+  </mat-toolbar>
+  <div class="context" fxLayout="row" fxLayoutAlign="center center">
+    <div class="context-text">
+      <h1 class="context-heading">Vacuole Inc.</h1>
+      <h3 class="context-slogan">Lorem ipsum dolor sit amet.</h3>
+      <button mat-raised-button routerLink="/browse">Browse</button>
+    </div>
+    <div class="context-img">
+      <img src="../../assets/context.png" alt="" />
+    </div>
+  </div>
+</section>

@@ -4,6 +4,56 @@
 .mat-toolbar {
   position: relative;
   z-index: 1;
+  color: white;
+}
+.mat-button {
+  color: white !important;
+}
+.toolbar-content {
+  width: 100%;
+}
+
+.searchInputWrapper {
+  position: relative;
+  border-right: 1px solid white;
+}
+
+.searchInput {
+  margin-right: 0.5rem;
+  width: 10rem;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 2rem;
+  border: none;
+  transition: transform 0.1s ease-in-out;
+}
+
+.nav-item1 button img {
+  margin-top: -2px !important;
+}
+::placeholder {
+  color: #a1a1a1;
+}
+
+/* hide the placeholder text on focus */
+:focus::placeholder {
+  text-indent: -999px;
+}
+
+.searchInput:focus {
+  outline: none;
+  width: 12rem;
+  transform: scale(1.04);
+  transition: all 0.1s ease-in-out;
+}
+
+.searchInputIcon {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.4rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .logo > img {
@@ -13,7 +63,7 @@
 .context {
   width: 100%;
   height: 40vh;
-  background-color: #e91e63;
+  background-color: #e74b7f;
   position: relative;
   text-align: center;
 }

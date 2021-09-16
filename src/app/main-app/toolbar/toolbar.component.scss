@@ -1,18 +1,26 @@
 .toolbar-content {
   width: 100%;
 }
+.mat-button {
+  color: white;
+}
 
 .searchInputWrapper {
   position: relative;
+  border-right: 1px solid white;
 }
 
 .searchInput {
+  margin-right: 0.5rem;
   width: 10rem;
   height: 2rem;
   padding: 0 1rem;
   border-radius: 2rem;
   border: none;
   transition: transform 0.1s ease-in-out;
+}
+.nav-item1 button img {
+  margin-top: -2px !important;
 }
 
 ::placeholder {
@@ -27,7 +35,7 @@
 .searchInput:focus {
   outline: none;
   width: 12rem;
-  transform: scale(1.08);
+  transform: scale(1.04);
   transition: all 0.1s ease-in-out;
 }
 

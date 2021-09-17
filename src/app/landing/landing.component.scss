@@ -5,12 +5,12 @@
   position: relative;
   z-index: 1;
   color: white;
-}
-.mat-button {
-  color: white !important;
-}
-.toolbar-content {
-  width: 100%;
+  .toolbar-content {
+    width: 100%;
+  }
+  .mat-button {
+    color: white !important;
+  }
 }
 
 .searchInputWrapper {
@@ -63,22 +63,113 @@
 .context {
   width: 100%;
   height: 40vh;
-  background-color: #e74b7f;
+  background-color: #ff4081;
   position: relative;
   text-align: center;
+  .context-text {
+    color: white;
+    h1 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  .context-img img {
+    width: 20vh;
+    position: absolute;
+    right: 15%;
+    top: 40%;
+  }
 }
-.context-img img {
-  width: 20vh;
-  position: absolute;
-  right: 15%;
-  top: 40%;
+.mobile-version {
+  width: 100%;
+  height: 4rem;
+  margin-top: 4rem;
+  color: #525252;
+  .card {
+    width: 40%;
+    padding: 1rem 2rem;
+    background-color: rgb(221, 221, 221);
+    border-radius: 5px;
+    .card-img {
+      width: 40%;
+      img {
+        width: 8.5rem;
+      }
+    }
+  }
+  .card-content {
+    width: 50%;
+  }
 }
-.context-text {
-  color: white;
+
+.landing-content {
+  width: 100%;
+  padding: 5rem 6rem;
+  color: #757575;
+  .landing-content-img {
+    width: 30%;
+    img {
+      width: 90%;
+    }
+  }
+  .landing-content-text {
+    width: 30%;
+  }
 }
-.context-text h1 {
-  font-size: 3rem;
+.footer {
+  margin-top: 8rem;
+  width: 100%;
+  height: 20rem;
+  background-color: #ff4081;
 }
-.context-text h3 {
-  font-size: 1.5rem;
+
+//Medium screen queries
+@media only screen and (max-width: 1000px) {
+  .landing-content {
+    width: 100%;
+    padding: 1.8rem 3rem;
+    .landing-content-img {
+      width: 45%;
+      img {
+        width: 80%;
+      }
+    }
+    .landing-content-text {
+      width: 45%;
+    }
+  }
+  .mobile-version {
+    .card {
+      width: 80%;
+    }
+  }
+}
+
+//Small screen queries
+@media only screen and (max-width: 500px) {
+  .landing-content {
+    width: 100%;
+    padding: 2rem 1rem;
+    .landing-content-img {
+      width: 80%;
+      padding: 0rem 1rem;
+      img {
+        width: 120%;
+      }
+    }
+    .landing-content-text {
+      width: 100%;
+      h3 {
+        font-size: 0.88rem;
+        line-height: 1.2rem;
+      }
+    }
+  }
+  .mobile-version {
+    .card {
+      width: 90%;
+    }
+  }
 }

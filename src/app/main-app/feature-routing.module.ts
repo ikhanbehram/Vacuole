@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: MainAppComponent,
   },
+  {
+    path: 'login',
+    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({

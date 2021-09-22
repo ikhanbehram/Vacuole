@@ -6,7 +6,6 @@ import { MaterialModule } from '../material.module';
 import { MainAppComponent } from './main-app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatTreeComponent } from './mat-tree/mat-tree.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -15,11 +14,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SidenavComponent,
     MatTreeComponent,
   ],
-  imports: [
-    CommonModule,
-    FeatureRoutingModule,
-    MaterialModule,
-    FlexLayoutModule,
-  ],
+  imports: [CommonModule, FeatureRoutingModule, MaterialModule],
 })
 export class FeatureModule {}

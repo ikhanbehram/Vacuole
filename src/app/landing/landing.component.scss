@@ -7,10 +7,24 @@
   color: white;
   .toolbar-content {
     width: 100%;
+    font-size: 1.1rem;
+    .l-nav-item {
+      cursor: pointer;
+      margin: 0rem 0.8rem;
+      &:hover {
+        color: lightgrey;
+      }
+    }
   }
   .mat-button {
     color: white !important;
   }
+}
+.active {
+  padding: 0.08rem 1rem;
+  background-color: lighten(#ff4081, 10%);
+
+  border-radius: 5px;
 }
 
 .searchInputWrapper {
@@ -28,7 +42,7 @@
   transition: transform 0.1s ease-in-out;
 }
 
-.nav-item1 button img {
+.r-nav-item1 button img {
   margin-top: -2px !important;
 }
 ::placeholder {
@@ -62,7 +76,7 @@
 }
 .context {
   width: 100%;
-  height: 40vh;
+  height: 45vh;
   background-color: #ff4081;
   position: relative;
   text-align: center;
@@ -161,6 +175,7 @@
     }
     .landing-content-text {
       width: 100%;
+      padding: 1rem 2rem;
       h3 {
         font-size: 0.88rem;
         line-height: 1.2rem;

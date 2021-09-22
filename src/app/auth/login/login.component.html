@@ -1,0 +1,75 @@
+<section class="login" fxLayout="row" fxLayoutAlign="center center">
+  <div class="design-section" fxLayoutAlign="center center" fxFlex="50">
+    <div class="design-img" fxLayout="column" fxLayoutAlign="center center">
+      <img src="../../../assets/auth/login.svg" alt="login" />
+    </div>
+  </div>
+  <div
+    class="form-section"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxFlex="50"
+  >
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="loginFormSubmit()"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <div
+        class="form-text"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="32px"
+      >
+        <h1>Log In</h1>
+        <div class="signup-link" fxFlexAlign="start">
+          <p>
+            Don't have an account? Create your account, it takes less than a
+            minute to
+          </p>
+          <a routerLink="signup"> <strong>Sign up</strong> </a>
+        </div>
+      </div>
+      <mat-form-field color="accent" class="input">
+        <mat-label>Email*</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="userEmailFormControl"
+          placeholder="e.g Max philip"
+        />
+        <mat-error
+          *ngIf="loginForm.controls.userEmailFormControl.hasError('required')"
+        >
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input" color="accent">
+        <mat-label>password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="userPasswordFormControl"
+          placeholder="Password"
+        />
+
+        <mat-error
+          *ngIf="
+            loginForm.controls.userPasswordFormControl.hasError('required')
+          "
+        >
+          you must enter your password
+        </mat-error>
+        <mat-error
+          *ngIf="
+            loginForm.controls.userPasswordFormControl.hasError('minlength')
+          "
+        >
+          password must be 8 characters long
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Log In</button>
+    </form>
+  </div>
+</section>

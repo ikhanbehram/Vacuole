@@ -1,0 +1,19 @@
+.cards-section {
+  min-width: 100%;
+  padding: 1rem 1rem;
+  .cards {
+    width: 100%;
+    mat-card {
+      max-width: 16rem;
+      margin-top: 1rem;
+      img {
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+//Small-medium devices
+@media only screen and (max-width: 650px) {
+}

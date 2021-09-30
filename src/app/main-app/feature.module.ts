@@ -6,6 +6,7 @@ import { MaterialModule } from '../material.module';
 import { MainAppComponent } from './main-app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatTreeComponent } from './mat-tree/mat-tree.component';
+import { OrganismsCardsComponent } from './organisms-cards/organisms-cards.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MatTreeComponent } from './mat-tree/mat-tree.component';
     MainAppComponent,
     SidenavComponent,
     MatTreeComponent,
+    OrganismsCardsComponent,
   ],
   imports: [CommonModule, FeatureRoutingModule, MaterialModule],
 })

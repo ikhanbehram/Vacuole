@@ -1,1 +1,94 @@
-<p>signup works!</p>
+<section class="signup" fxLayout="row" fxLayoutAlign="center center">
+  <div
+    class="design-section"
+    fxLayoutAlign="center center"
+    fxFlex="50"
+    fxFlex.xs="0"
+    fxFlex.sm="35"
+  >
+    <div class="design-img" fxLayout="column" fxLayoutAlign="center center">
+      <img src="../../../assets/auth/signup.svg" alt="login" />
+    </div>
+  </div>
+  <div
+    class="form-section"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxFlex="50"
+    fxFlex.xs="100"
+    fxFlex.sm="65"
+  >
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="signupFormSubmit()"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <div
+        class="form-text"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="32px"
+      >
+        <h1>Sign Up</h1>
+      </div>
+      <mat-form-field color="accent" class="input">
+        <mat-label>User Name</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="userNameFormControl"
+          placeholder="Maxphilip@xyz.com"
+        />
+        <mat-error
+          *ngIf="signupForm.controls.userEmailFormControl.hasError('required')"
+        >
+          User name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" class="input">
+        <mat-label>Email*</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="userEmailFormControl"
+          placeholder="e.g Max philip"
+        />
+        <mat-error
+          *ngIf="signupForm.controls.userEmailFormControl.hasError('required')"
+        >
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input" color="accent">
+        <mat-label>password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="userPasswordFormControl"
+          placeholder="Password"
+        />
+
+        <mat-error
+          *ngIf="
+            signupForm.controls.userPasswordFormControl.hasError('required')
+          "
+        >
+          you must enter your password
+        </mat-error>
+        <mat-error
+          *ngIf="
+            signupForm.controls.userPasswordFormControl.hasError('minlength')
+          "
+        >
+          password must be 8 characters long
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Sign up</button>
+      <button mat-raised-button color="warn" type="submit">
+        SignUp with <strong>Google</strong>
+      </button>
+    </form>
+  </div>
+</section>

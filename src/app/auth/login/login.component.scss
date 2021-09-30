@@ -12,6 +12,11 @@
   .form-section {
     height: 100vh;
     padding: 1rem 4rem;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.95)
+      ),
+      url(../../../assets/auth/login-bg.svg) no-repeat center;
 
     form {
       width: 100%;
@@ -26,6 +31,7 @@
           padding-bottom: 2rem;
           letter-spacing: 6px;
           font-weight: 900;
+          color: rgb(56, 56, 56);
         }
         p {
           font-size: 1.1rem;
@@ -75,6 +81,24 @@
         }
         button {
           margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+}
+//-extra-small screen
+@media only screen and (max-width: 500px) {
+  .login {
+    .form-section {
+      form {
+        .form-text {
+          h1 {
+            letter-spacing: 2px;
+            font-size: 2rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
         }
       }
     }

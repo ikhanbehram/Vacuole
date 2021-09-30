@@ -1,10 +1,10 @@
 .sidenav {
   height: 100vh;
-}
-mat-sidenav {
-  position: fixed;
-  width: 15rem;
-  overflow: hidden;
+  mat-sidenav {
+    position: fixed;
+    min-width: 20rem;
+    overflow: hidden;
+  }
 }
 
 .mat-drawer-content {
@@ -20,24 +20,33 @@ mat-icon {
 .sidenav-content {
   height: 100%;
   width: 100%;
+  .sidenav-text {
+    color: rgb(97, 97, 97);
+    margin-top: 2rem;
+    position: relative;
+    width: 100%;
+    p {
+      padding: 0rem 1rem;
+    }
+    .vacuole {
+      width: 100%;
+      background-color: rgba(223, 223, 223, 0.685);
+      position: absolute;
+      bottom: 0;
+      p {
+        margin-top: 5%;
+        font-weight: bolder;
+        letter-spacing: 2px;
+      }
+    }
+  }
 }
-.sidenav-text {
-  color: rgb(97, 97, 97);
-  margin-top: 2rem;
-  position: relative;
-  width: 100%;
-}
-.sidenav-text p {
-  padding: 0rem 1rem;
-}
-.vacuole {
-  width: 100%;
-  background-color: rgba(223, 223, 223, 0.685);
-  position: absolute;
-  bottom: 0;
-}
-.vacuole p {
-  margin-top: 5%;
-  font-weight: bolder;
-  letter-spacing: 2px;
+
+// medium size screen
+@media only screen and (max-width: 800px) {
+  .sidenav {
+    mat-sidenav {
+      min-width: 10rem;
+    }
+  }
 }

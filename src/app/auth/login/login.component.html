@@ -1,5 +1,11 @@
 <section class="login" fxLayout="row" fxLayoutAlign="center center">
-  <div class="design-section" fxLayoutAlign="center center" fxFlex="50">
+  <div
+    class="design-section"
+    fxLayoutAlign="center center"
+    fxFlex="50"
+    fxFlex.xs="0"
+    fxFlex.sm="35"
+  >
     <div class="design-img" fxLayout="column" fxLayoutAlign="center center">
       <img src="../../../assets/auth/login.svg" alt="login" />
     </div>
@@ -9,6 +15,8 @@
     fxLayout="column"
     fxLayoutAlign="center center"
     fxFlex="50"
+    fxFlex.xs="100"
+    fxFlex.sm="65"
   >
     <form
       [formGroup]="loginForm"

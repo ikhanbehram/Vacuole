@@ -1,5 +1,8 @@
-.mat-tree-node {
-  color: rgb(97, 97, 97);
-  min-height: 10px !important;
-  width: 100%;
+section.mat-tree {
+  padding: 1rem 0.8rem;
+  .mat-tree-node {
+    color: rgb(97, 97, 97);
+    min-height: 10px !important;
+    width: 100%;
+  }
 }

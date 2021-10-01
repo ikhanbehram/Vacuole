@@ -1,6 +1,11 @@
 <div class="sidenav">
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" opened push #sidenav>
+  <mat-sidenav-container [hasBackdrop]="onSmallScreen">
+    <mat-sidenav
+      mode="side"
+      [opened]="!onSmallScreen"
+      [mode]="sidenavMode"
+      #sidenav
+    >
       <div
         class="sidenav-content"
         fxLayout="column"

@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <div
+    class="toolbar-content"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div class="left-content" fxLayout="row" fxLayoutAlign="center center">
+      <div class="logo" routerLink="/browse">
+        <h1>Logo</h1>
+      </div>
+      <div class="l-nav-item" routerLink="about" routerLinkActive="active">
+        About
+      </div>
+      <div class="l-nav-item">Services</div>
+    </div>
+    <div
+      class="right-content"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="8px"
+    >
+      <div class="nav-item1">
+        <div class="searchInputWrapper">
+          <input class="searchInput" type="text" placeholder="Search" />
+          <mat-icon class="searchInputIcon">search</mat-icon>
+        </div>
+      </div>
+
+      <div class="r-nav-item1" fxHide.xs>
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>
+            <img src="../../../assets/linkedin.svg" alt="" />
+          </mat-icon>
+        </button>
+      </div>
+      <div class="r-nav-item2" fxHide.xs>
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>
+            <img src="../../../assets/twitter.svg" alt="" />
+          </mat-icon>
+        </button>
+      </div>
+      <div class="r-nav-item3">
+        <button mat-button routerLink="/auth/login">Log in</button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

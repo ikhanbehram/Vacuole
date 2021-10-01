@@ -28,16 +28,16 @@ mat-icon {
     p {
       padding: 0rem 1rem;
     }
-    .vacuole {
-      width: 100%;
-      background-color: rgba(223, 223, 223, 0.685);
-      position: absolute;
-      bottom: 0;
-      p {
-        margin-top: 5%;
-        font-weight: bolder;
-        letter-spacing: 2px;
-      }
+  }
+  .vacuole {
+    width: 100%;
+    background-color: rgba(223, 223, 223, 0.685);
+    position: absolute;
+    bottom: 0;
+    p {
+      margin-top: 5%;
+      font-weight: bolder;
+      letter-spacing: 2px;
     }
   }
 }
@@ -46,7 +46,7 @@ mat-icon {
 @media only screen and (max-width: 800px) {
   .sidenav {
     mat-sidenav {
-      min-width: 10rem;
+      min-width: 12rem;
     }
   }
 }

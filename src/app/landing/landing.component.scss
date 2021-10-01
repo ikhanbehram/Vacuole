@@ -1,79 +1,7 @@
 .landing {
   height: 80vh;
 }
-.mat-toolbar {
-  position: relative;
-  z-index: 1;
-  color: white;
-  .toolbar-content {
-    width: 100%;
-    font-size: 1.1rem;
-    .l-nav-item {
-      cursor: pointer;
-      margin: 0rem 0.8rem;
-      &:hover {
-        color: lightgrey;
-      }
-    }
-  }
-  .mat-button {
-    color: white !important;
-  }
-}
-.active {
-  padding: 0.08rem 1rem;
-  background-color: lighten(#ff4081, 10%);
 
-  border-radius: 5px;
-}
-
-.searchInputWrapper {
-  position: relative;
-  border-right: 1px solid white;
-}
-
-.searchInput {
-  margin-right: 0.5rem;
-  width: 10rem;
-  height: 2rem;
-  padding: 0 1rem;
-  border-radius: 2rem;
-  border: none;
-  transition: transform 0.1s ease-in-out;
-}
-
-.r-nav-item1 button img {
-  margin-top: -2px !important;
-}
-::placeholder {
-  color: #a1a1a1;
-}
-
-/* hide the placeholder text on focus */
-:focus::placeholder {
-  text-indent: -999px;
-}
-
-.searchInput:focus {
-  outline: none;
-  width: 12rem;
-  transform: scale(1.04);
-  transition: all 0.1s ease-in-out;
-}
-
-.searchInputIcon {
-  position: absolute;
-  right: 0.8rem;
-  top: 0.4rem;
-  color: #a1a1a1;
-  transition: all 0.1s ease-in-out;
-  cursor: pointer;
-}
-
-.logo > img {
-  width: 4.5rem;
-  cursor: pointer !important;
-}
 .context {
   width: 100%;
   height: 45vh;

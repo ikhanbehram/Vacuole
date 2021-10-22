@@ -20,27 +20,17 @@
         </div>
       </div>
 
-      <div class="nav-item1" fxHide.xs>
+      <div class="nav-item1" fxHide.sm fxHide.xs>
         <button
-          mat-icon-button
+          mat-flat-button
           aria-label="Example icon button with a home icon"
+          routerLink="collection"
         >
-          <mat-icon>
-            <img src="../../../assets/linkedin.svg" alt="" />
-          </mat-icon>
+          My Collects
         </button>
       </div>
-      <div class="nav-item2" fxHide.xs>
-        <button
-          mat-icon-button
-          aria-label="Example icon button with a home icon"
-        >
-          <mat-icon>
-            <img src="../../../assets/twitter.svg" alt="" />
-          </mat-icon>
-        </button>
-      </div>
-      <div class="nav-item3">
+
+      <div class="nav-item2">
         <button mat-button routerLink="/auth">Log in</button>
       </div>
     </div>

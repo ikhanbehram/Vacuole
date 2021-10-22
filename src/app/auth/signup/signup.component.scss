@@ -89,13 +89,13 @@
 
 //-extra-small screen
 @media only screen and (max-width: 500px) {
-  .login {
+  .signup {
     .form-section {
       form {
         .form-text {
           h1 {
             letter-spacing: 2px;
-            font-size: 2rem;
+            font-size: 1.8rem;
           }
           p {
             font-size: 0.8rem;

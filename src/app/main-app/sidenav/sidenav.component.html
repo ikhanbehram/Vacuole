@@ -12,13 +12,14 @@
         fxLayoutAlign="space-between start"
       >
         <div class="sidenav-text">
-          <p>Intro</p>
-          <p>All</p>
-          <mat-divider></mat-divider>
+          <p routerLinkActive="active">intoduction</p>
+          <p routerLinkActive="active">All</p>
+          <p routerLinkActive="active">My Collects</p>
+
           <app-mat-tree></app-mat-tree>
         </div>
         <div class="vacuole" fxLayout="columns" fxLayoutAlign="center center">
-          <p>Vacuole &#174;</p>
+          <p>Version 1.0.0</p>
         </div>
       </div>
     </mat-sidenav>
@@ -28,6 +29,7 @@
           >menu</mat-icon
         >
       </app-toolbar>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

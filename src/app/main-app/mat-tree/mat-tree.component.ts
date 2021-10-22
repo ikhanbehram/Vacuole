@@ -5,12 +5,12 @@ import {
   MatTreeFlattener,
 } from '@angular/material/tree';
 
-interface FoodNode {
+interface microbesCategories {
   name: string;
-  children?: FoodNode[];
+  children?: microbesCategories[];
 }
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: microbesCategories[] = [
   {
     name: 'Fruit',
     children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
@@ -76,7 +76,7 @@ interface ExampleFlatNode {
   styleUrls: ['./mat-tree.component.scss'],
 })
 export class MatTreeComponent implements OnInit {
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: microbesCategories, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,

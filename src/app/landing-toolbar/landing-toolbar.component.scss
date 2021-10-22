@@ -18,9 +18,8 @@
   }
 }
 .active {
-  padding: 0.08rem 1rem;
+  padding: 0.03rem 0.88rem;
   background-color: lighten(#ff4081, 10%);
-
   border-radius: 5px;
 }
 
@@ -70,4 +69,23 @@
 .logo > img {
   width: 4.5rem;
   cursor: pointer !important;
+}
+
+@media screen and (max-width: 600px) {
+  .mat-toolbar {
+    height: 5.5em;
+    .toolbar-content {
+      width: 100%;
+      .left-content {
+        width: 100%;
+      }
+      .right-content {
+        width: 100%;
+      }
+    }
+  }
+  .searchInputWrapper {
+    margin-right: 3rem;
+    border: none;
+  }
 }

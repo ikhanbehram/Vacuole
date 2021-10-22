@@ -1,0 +1,25 @@
+.collection {
+  height: 90vh;
+  background-color: #fff;
+  .collection-text {
+    padding: 1rem 2rem;
+    p {
+      margin: 0;
+      color: grey;
+    }
+    h1 {
+      margin: 0;
+    }
+  }
+  .collection-cards {
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    mat-card {
+      margin-top: 0.4rem;
+      width: 16rem;
+      img {
+        border-radius: 10px;
+      }
+    }
+  }
+}

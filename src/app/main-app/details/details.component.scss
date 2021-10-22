@@ -1,0 +1,24 @@
+.microbe-details {
+  background-color: #fff;
+  padding: 2rem 2rem;
+  .intro {
+    width: 80%;
+    .intro-img {
+      img {
+        width: 50%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+    .intro-text {
+      margin-top: 1rem;
+      h1 {
+        color: rgb(80, 80, 80);
+      }
+      h3 {
+        margin-top: -1.2rem;
+        color: darkgrey;
+      }
+    }
+  }
+}

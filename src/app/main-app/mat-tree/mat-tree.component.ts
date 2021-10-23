@@ -4,68 +4,67 @@ import {
   MatTreeFlatDataSource,
   MatTreeFlattener,
 } from '@angular/material/tree';
+import { ApiService } from '../services/api.service';
+import { categoriesHelper } from '../../models/categories.model';
+import { Router } from '@angular/router';
 
-interface microbesCategories {
-  name: string;
-  children?: microbesCategories[];
-}
-
-const TREE_DATA: microbesCategories[] = [
-  {
-    name: 'Fruit',
-    children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
-      },
-      {
-        name: 'Orange',
-        children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
-      },
-    ],
-  },
-  {
-    name: 'Fruit',
-    children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
-      },
-      {
-        name: 'Orange',
-        children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
-      },
-    ],
-  },
-  {
-    name: 'Fruit',
-    children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
-      },
-      {
-        name: 'Orange',
-        children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
-      },
-    ],
-  },
+const TREE_DATA: categoriesHelper[] = [
+  // {
+  //   name: 'Fruit',
+  //   children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
+  // },
+  // {
+  //   name: 'Vegetables',
+  //   children: [
+  //     {
+  //       name: 'Green',
+  //       children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
+  //     },
+  //     {
+  //       name: 'Orange',
+  //       children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: 'Fruit',
+  //   children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
+  // },
+  // {
+  //   name: 'Vegetables',
+  //   children: [
+  //     {
+  //       name: 'Green',
+  //       children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
+  //     },
+  //     {
+  //       name: 'Orange',
+  //       children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: 'Fruit',
+  //   children: [{ name: 'Apple' }, { name: 'Banana' }, { name: 'Fruit loops' }],
+  // },
+  // {
+  //   name: 'Vegetables',
+  //   children: [
+  //     {
+  //       name: 'Green',
+  //       children: [{ name: 'Broccoli' }, { name: 'Brussels sprouts' }],
+  //     },
+  //     {
+  //       name: 'Orange',
+  //       children: [{ name: 'Pumpkins' }, { name: 'Carrots' }],
+  //     },
+  //   ],
+  // },
 ];
 
-interface ExampleFlatNode {
+interface MicrobeNode {
   expandable: boolean;
+  id: number;
   name: string;
   level: number;
 }
@@ -76,15 +75,16 @@ interface ExampleFlatNode {
   styleUrls: ['./mat-tree.component.scss'],
 })
 export class MatTreeComponent implements OnInit {
-  private _transformer = (node: microbesCategories, level: number) => {
+  private _transformer = (node: categoriesHelper, level: number) => {
     return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
+      expandable: !!node.sub_categories && node.sub_categories.length > 0,
+      id: node.id,
+      name: node.title,
       level: level,
     };
   };
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<MicrobeNode>(
     (node) => node.level,
     (node) => node.expandable
   );
@@ -93,16 +93,23 @@ export class MatTreeComponent implements OnInit {
     this._transformer,
     (node) => node.level,
     (node) => node.expandable,
-    (node) => node.children
+    (node) => node.sub_categories
   );
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() {
+  constructor(private apiService: ApiService, private router: Router) {
     this.dataSource.data = TREE_DATA;
   }
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: MicrobeNode) => node.expandable;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService.getMicrobeCategories().subscribe((data) => {
+      this.dataSource.data = data;
+    });
+  }
+  onCategory(node: MicrobeNode) {
+    this.router.navigate(['/browse', 'type', node.name]);
+  }
 }

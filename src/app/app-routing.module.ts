@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { LandingComponent } from './landing/landing.component';
+import { AboutComponent } from './primary/about/about.component';
+import { LandingComponent } from './primary/landing/landing.component';
 
 import { PrimaryComponent } from './primary/primary.component';
 

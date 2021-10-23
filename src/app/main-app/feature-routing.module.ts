@@ -16,11 +16,11 @@ const routes: Routes = [
         component: OrganismsCardsComponent,
       },
       { path: 'id/:id', component: DetailsComponent },
+      { path: '', redirectTo: 'type/all', pathMatch: 'full' },
       {
         path: 'collection',
         component: CollectionComponent,
       },
-      { path: '', redirectTo: 'type/all', pathMatch: 'full' },
     ],
   },
 

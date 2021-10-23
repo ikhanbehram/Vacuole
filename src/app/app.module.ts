@@ -8,9 +8,9 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { FeatureModule } from './main-app/feature.module';
 import { AuthModule } from './auth/auth.module';
-import { LandingComponent } from './landing/landing.component';
-import { AboutComponent } from './about/about.component';
-import { LandingToolbarComponent } from './landing-toolbar/landing-toolbar.component';
+import { LandingComponent } from './primary/landing/landing.component';
+import { AboutComponent } from './primary/about/about.component';
+import { LandingToolbarComponent } from './primary/landing-toolbar/landing-toolbar.component';
 import { PrimaryComponent } from './primary/primary.component';
 
 @NgModule({

@@ -5,6 +5,7 @@
       *matTreeNodeDef="let node"
       matTreeNodePadding
       routerLinkActive="active"
+      (click)="onCategory(node)"
     >
       <!-- use a disabled button to provide padding for tree leaf -->
       <button mat-icon-button disabled></button>
@@ -14,6 +15,7 @@
     <mat-tree-node
       *matTreeNodeDef="let node; when: hasChild"
       matTreeNodePadding
+      (click)="onCategory(node)"
     >
       <button
         mat-icon-button

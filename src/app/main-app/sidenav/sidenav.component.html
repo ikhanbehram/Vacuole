@@ -13,8 +13,8 @@
       >
         <div class="sidenav-text">
           <p routerLinkActive="active">intoduction</p>
-          <p routerLinkActive="active">All</p>
-          <p routerLinkActive="active">My Collects</p>
+          <p routerLinkActive="active" routerLink="type/all">All</p>
+          <p routerLink="/collection" routerLinkActive="active">My Collects</p>
 
           <app-mat-tree></app-mat-tree>
         </div>
@@ -29,7 +29,6 @@
           >menu</mat-icon
         >
       </app-toolbar>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

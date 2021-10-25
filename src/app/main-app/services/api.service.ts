@@ -49,4 +49,37 @@ export class ApiService {
       );
     // return this.organismCards.asObservable();
   }
+
+  getMicrobesByCategories(parent: string, id: number) {
+    if (parent === 'true') {
+      return this.getParentMicrobes(id);
+    }
+    return this.getChildMicrobes(id);
+  }
+  getParentMicrobes(id: number) {
+    return this.http
+      .get<{ data: MicrobeCard[] }>(this._baseURI + '/categories/' + id)
+      .pipe(
+        map((resData) => {
+          const cards = resData.data;
+          return cards;
+        }),
+        tap((cards) => {
+          this.microbeCards.next(cards);
+        })
+      );
+  }
+  getChildMicrobes(id: number) {
+    return this.http
+      .get<{ data: MicrobeCard[] }>(this._baseURI + '/sub-categories/' + id)
+      .pipe(
+        map((resData) => {
+          const cards = resData.data;
+          return cards;
+        }),
+        tap((cards) => {
+          this.microbeCards.next(cards);
+        })
+      );
+  }
 }

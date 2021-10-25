@@ -12,11 +12,15 @@ const routes: Routes = [
     component: MainAppComponent,
     children: [
       {
-        path: 'type/:type',
+        path: 'type',
+        component: OrganismsCardsComponent,
+      },
+      {
+        path: 'type/:id',
         component: OrganismsCardsComponent,
       },
       { path: 'id/:id', component: DetailsComponent },
-      { path: '', redirectTo: 'type/all', pathMatch: 'full' },
+      { path: '', redirectTo: 'type', pathMatch: 'full' },
       {
         path: 'collection',
         component: CollectionComponent,

@@ -110,6 +110,8 @@ export class MatTreeComponent implements OnInit {
     });
   }
   onCategory(node: MicrobeNode) {
-    this.router.navigate(['/browse', 'type', node.name]);
+    this.router.navigate(['/browse', 'type', node.id], {
+      queryParams: { parent: node.expandable },
+    });
   }
 }

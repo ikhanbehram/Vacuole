@@ -1,8 +1,17 @@
+<mat-progress-bar
+  mode="indeterminate"
+  color="primary"
+  *ngIf="loading"
+></mat-progress-bar>
+<div class="back-button" fxHide.lg>
+  <mat-icon routerLink="../">arrow_back</mat-icon>
+</div>
 <section
   class="cards-section"
   fxLayout="column"
   fxLayoutAlign="center start"
   fxLayoutGap="20px"
+  *ngIf="!loading"
 >
   <div class="section-title">
     <h1>{{ title }}</h1>
@@ -37,5 +46,24 @@
     <!-- extra div for alignment issue -->
     <div></div>
     <!-- Extra empty div -->
+  </div>
+  <div class="pagination" fxLayout="row" fxLayoutAlign="center center">
+    <mat-icon
+      *ngIf="previousPageUrl"
+      (click)="onNextAndPrevious(previousPageUrl)"
+      >chevron_left</mat-icon
+    >
+    <button
+      color="light"
+      mat-mini-fab
+      *ngFor="let link of links"
+      [ngClass]="{ 'page-active': link.active }"
+      (click)="onPaginate(link.label)"
+    >
+      {{ link.label }}
+    </button>
+    <mat-icon *ngIf="nextPageUrl" (click)="onNextAndPrevious(nextPageUrl)"
+      >chevron_right</mat-icon
+    >
   </div>
 </section>

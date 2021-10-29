@@ -1,33 +1,26 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categories } from 'src/app/models/categories.model';
 import { map, take, tap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { MicrobeCard } from 'src/app/models/microbeCard.model';
+import { responseData } from 'src/app/models/microbesResponse.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  microbeCards = new BehaviorSubject<MicrobeCard[]>([
-    // {
-    //   title: 'Tobacco mosaid',
-    //   description: 'hiadasdasd fdssdnfkjsfer jashdeur diasduenfra',
-    //   image:
-    //     'https://media.istockphoto.com/photos/beneficial-healthy-intestinal-bacterium-micro-flora-picture-id1091692964?k=20&m=1091692964&s=612x612&w=0&h=IZLsHGACNWywdeOUeF4R8QORtvxs9lhZiqLyAB-4tzE=',
-    // },
-    // {
-    //   title: 'Tobacco mosaid',
-    //   description: 'hiadasdasd fdssdnfkjsfer jashdeur diasduenfra',
-    //   image:
-    //     'https://media.istockphoto.com/photos/beneficial-healthy-intestinal-bacterium-micro-flora-picture-id1091692964?k=20&m=1091692964&s=612x612&w=0&h=IZLsHGACNWywdeOUeF4R8QORtvxs9lhZiqLyAB-4tzE=',
-    // },
-  ]);
-  private _baseURI = 'https://www.vacuole.kashifdev.com';
+  private microbeCards = new Subject<responseData>();
+  private _baseURL = 'https://www.vacuole.kashifdev.com';
 
   constructor(private http: HttpClient) {}
+
+  get fetchMicrobes() {
+    return this.microbeCards.asObservable();
+  }
+
   getMicrobeCategories() {
-    return this.http.get<Categories>(this._baseURI + '/categories').pipe(
+    return this.http.get<Categories>(`${this._baseURL}/categories`).pipe(
       take(1),
       map((categories) => {
         return categories.data;
@@ -35,51 +28,124 @@ export class ApiService {
     );
   }
 
-  getAllMicrobes() {
-    return this.http
-      .get<{ data: MicrobeCard[] }>(this._baseURI + '/microbes')
-      .pipe(
+  getAllMicrobes(pageNo?: number) {
+    let requestUrl = `${this._baseURL}/microbes`;
+    if (pageNo) {
+      console.info('We are paginating');
+      const params = new HttpParams().set('page', pageNo);
+      return this.http.get<responseData>(requestUrl, { params: params }).pipe(
         map((resData) => {
-          const cards = resData.data;
-          return cards;
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
         }),
-        tap((cards) => {
-          this.microbeCards.next(cards);
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
         })
       );
+    } else {
+      console.info('We are not paginating');
+      return this.http.get<responseData>(requestUrl).pipe(
+        map((resData) => {
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
+        }),
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
+        })
+      );
+    }
+
     // return this.organismCards.asObservable();
   }
 
-  getMicrobesByCategories(parent: string, id: number) {
+  getMicrobesByCategories(parent: string, id: number, pageNo?: number) {
     if (parent === 'true') {
-      return this.getParentMicrobes(id);
+      return this.getParentMicrobes(id, pageNo);
     }
-    return this.getChildMicrobes(id);
+    return this.getChildMicrobes(id, pageNo);
   }
-  getParentMicrobes(id: number) {
-    return this.http
-      .get<{ data: MicrobeCard[] }>(this._baseURI + '/categories/' + id)
-      .pipe(
+  getParentMicrobes(id: number, pageNo?: number) {
+    let requestUrl = `${this._baseURL}/categories/${id}`;
+    if (pageNo) {
+      console.info('We are paginating');
+      const params = new HttpParams().set('page', pageNo);
+      return this.http.get<responseData>(requestUrl, { params: params }).pipe(
         map((resData) => {
-          const cards = resData.data;
-          return cards;
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
         }),
-        tap((cards) => {
-          this.microbeCards.next(cards);
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
         })
       );
-  }
-  getChildMicrobes(id: number) {
-    return this.http
-      .get<{ data: MicrobeCard[] }>(this._baseURI + '/sub-categories/' + id)
-      .pipe(
+    } else {
+      console.info('We are not paginating');
+      return this.http.get<responseData>(requestUrl).pipe(
         map((resData) => {
-          const cards = resData.data;
-          return cards;
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
         }),
-        tap((cards) => {
-          this.microbeCards.next(cards);
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
         })
       );
+    }
+  }
+  getChildMicrobes(id: number, pageNo?: number) {
+    let requestUrl = `${this._baseURL}/sub-categories/${id}`;
+    if (pageNo) {
+      console.info('We are paginating');
+      const params = new HttpParams().set('page', pageNo);
+      return this.http.get<responseData>(requestUrl, { params: params }).pipe(
+        map((resData) => {
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
+        }),
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
+        })
+      );
+    } else {
+      console.info('We are not paginating');
+      return this.http.get<responseData>(requestUrl).pipe(
+        map((resData) => {
+          const responseObj: responseData = {
+            data: resData.data,
+            next_page_url: resData.next_page_url,
+            prev_page_url: resData.prev_page_url,
+            links: resData.links,
+          };
+          return responseObj;
+        }),
+        tap((responseObj) => {
+          this.microbeCards.next(responseObj);
+        })
+      );
+    }
   }
 }

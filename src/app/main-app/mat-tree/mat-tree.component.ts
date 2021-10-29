@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import {
   MatTreeFlatDataSource,
@@ -73,6 +73,7 @@ interface MicrobeNode {
   selector: 'app-mat-tree',
   templateUrl: './mat-tree.component.html',
   styleUrls: ['./mat-tree.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MatTreeComponent implements OnInit {
   private _transformer = (node: categoriesHelper, level: number) => {

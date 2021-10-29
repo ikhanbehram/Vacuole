@@ -1,6 +1,7 @@
 .cards-section {
   min-width: 100%;
-  padding: 1rem 1rem;
+  padding: 0.2rem 1rem;
+
   .cards {
     width: 100%;
     mat-card {
@@ -16,6 +17,31 @@
         height: 5rem;
       }
     }
+  }
+}
+.back-button {
+  mat-icon {
+    margin-left: 1.5rem;
+    margin-top: 0.4rem;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+  }
+}
+.pagination {
+  width: 100%;
+  padding: 1rem 1rem;
+  button {
+    margin: 0rem 0.1rem;
+  }
+  mat-icon {
+    margin: 0rem 1rem;
+    font-weight: bolder;
+    color: rgb(102, 102, 102);
+    cursor: pointer;
+  }
+  .page-active {
+    background-color: rgb(243, 116, 137);
+    color: white;
   }
 }
 

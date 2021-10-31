@@ -4,6 +4,7 @@ import { AboutComponent } from './primary/about/about.component';
 import { LandingComponent } from './primary/landing/landing.component';
 
 import { PrimaryComponent } from './primary/primary.component';
+import { Wildcard404Component } from './primary/wildcard404/wildcard404.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/auth/auth.module').then((m) => m.AuthModule),
   },
+  { path: '**', component: Wildcard404Component },
 ];
 
 @NgModule({

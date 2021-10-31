@@ -13,6 +13,7 @@ import { AboutComponent } from './primary/about/about.component';
 import { LandingToolbarComponent } from './primary/landing-toolbar/landing-toolbar.component';
 import { PrimaryComponent } from './primary/primary.component';
 import { environment } from 'src/environments/environment';
+import { Wildcard404Component } from './primary/wildcard404/wildcard404.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { environment } from 'src/environments/environment';
     AboutComponent,
     LandingToolbarComponent,
     PrimaryComponent,
+    Wildcard404Component,
   ],
   imports: [
     BrowserModule,

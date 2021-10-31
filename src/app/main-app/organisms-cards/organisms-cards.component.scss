@@ -40,7 +40,7 @@
     cursor: pointer;
   }
   .page-active {
-    background-color: #ff4081;
+    background-color: rgb(241, 84, 108);
     color: white;
   }
 }
@@ -51,6 +51,27 @@
     padding: 0.4rem 0.4rem;
     mat-icon {
       margin: 0;
+    }
+  }
+}
+/////////////////
+//fallback styling if there is no kicro organisms
+//////////////
+.no-items {
+  padding-top: 0.2rem;
+  width: 100%;
+  height: 80vh;
+  p.text {
+    font-size: 1.8rem;
+    color: rgb(102, 102, 102);
+    mat-icon {
+      font-size: 1.8rem;
+    }
+  }
+  .img {
+    padding-top: 0.5rem;
+    img {
+      width: 50%;
     }
   }
 }

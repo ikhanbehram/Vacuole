@@ -10,11 +10,12 @@
   text-align: center;
   .context-text {
     color: white;
-    h1 {
-      font-size: 3rem;
+    h1.context-heading {
+      font-size: 4rem;
     }
-    h3 {
-      font-size: 1.5rem;
+    h3.context-slogan {
+      font-size: 1.35rem;
+      letter-spacing: 4.5px;
     }
   }
   .context-img img {

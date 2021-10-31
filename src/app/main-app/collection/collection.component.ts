@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collection.component.scss']
 })
 export class CollectionComponent implements OnInit {
+  
 
   constructor() { }
 

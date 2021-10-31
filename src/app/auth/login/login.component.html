@@ -77,7 +77,14 @@
           password must be 8 characters long
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Log In</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Log In
+      </button>
     </form>
   </div>
 </section>

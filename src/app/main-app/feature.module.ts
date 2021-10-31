@@ -9,6 +9,8 @@ import { MatTreeComponent } from './mat-tree/mat-tree.component';
 import { OrganismsCardsComponent } from './organisms-cards/organisms-cards.component';
 import { DetailsComponent } from './details/details.component';
 import { CollectionComponent } from './collection/collection.component';
+import { IntroductionComponent } from './introduction/introduction.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CollectionComponent } from './collection/collection.component';
     OrganismsCardsComponent,
     DetailsComponent,
     CollectionComponent,
+    IntroductionComponent,
+  
   ],
   imports: [CommonModule, FeatureRoutingModule, MaterialModule],
 })

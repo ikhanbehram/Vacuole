@@ -12,14 +12,13 @@
         fxLayoutAlign="space-between start"
       >
         <div class="sidenav-text">
-          <p routerLinkActive="active">intoduction</p>
-          <p routerLinkActive="active" routerLink="type/all">All</p>
+          <p [routerLink]="['/browse', 'intro']" routerLinkActive="active">
+            intoduction
+          </p>
+          <p [routerLink]="['type', 'all']" routerLinkActive="active">All</p>
           <p routerLink="/collection" routerLinkActive="active">My Collects</p>
 
           <app-mat-tree></app-mat-tree>
-        </div>
-        <div class="vacuole" fxLayout="columns" fxLayoutAlign="center center">
-          <p>Version 1.0.0</p>
         </div>
       </div>
     </mat-sidenav>

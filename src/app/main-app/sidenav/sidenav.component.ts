@@ -12,11 +12,11 @@ export class SidenavComponent implements OnInit {
 
   constructor(private breakPointsObserver: BreakpointObserver) {
     this.breakPointsObserver
-      .observe([Breakpoints.HandsetPortrait])
+      .observe([Breakpoints.HandsetPortrait] || [Breakpoints.HandsetLandscape])
       .subscribe((result) => {
         if (result.matches) {
           this.onSmallScreen = true;
-          this.sidenavMode = 'side';
+          this.sidenavMode = 'over';
         }
       });
   }

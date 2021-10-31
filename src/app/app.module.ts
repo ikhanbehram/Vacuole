@@ -12,6 +12,7 @@ import { LandingComponent } from './primary/landing/landing.component';
 import { AboutComponent } from './primary/about/about.component';
 import { LandingToolbarComponent } from './primary/landing-toolbar/landing-toolbar.component';
 import { PrimaryComponent } from './primary/primary.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { PrimaryComponent } from './primary/primary.component';
     AuthModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: 'BASE_API_URL', useValue: environment.apiUrl }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

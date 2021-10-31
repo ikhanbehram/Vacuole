@@ -47,7 +47,12 @@
     <div></div>
     <!-- Extra empty div -->
   </div>
-  <div class="pagination" fxLayout="row" fxLayoutAlign="center center">
+  <div
+    class="pagination"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    *ngIf="!loading"
+  >
     <mat-icon
       *ngIf="previousPageUrl"
       (click)="onNextAndPrevious(previousPageUrl)"

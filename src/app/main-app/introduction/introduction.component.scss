@@ -1,0 +1,111 @@
+.intro {
+  max-width: 100%;
+  color: rgb(97, 97, 97);
+  .intro-content {
+    width: 90%;
+    padding: 2rem 6rem;
+    .intro-heading {
+      padding: 1rem 0rem;
+      h1 {
+        font-size: 2.5rem;
+        color: rgb(97, 97, 97);
+        font-weight: 500;
+      }
+    }
+    .intro-logo {
+      padding: 3rem 0rem;
+      .logo {
+        img {
+          width: 18rem;
+        }
+      }
+      .text {
+        margin-top: 0.4rem;
+        font-size: 1rem;
+      }
+    }
+    .intro-links {
+      .link {
+        width: 9rem;
+        height: 1.5rem;
+        color: white;
+        background-color: rgb(97, 97, 97);
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        .link-logo {
+          width: 60%;
+          height: 100%;
+          background-color: darken($color: rgb(97, 97, 97), $amount: 10%);
+        }
+        .link-button {
+          width: 40%;
+          height: 100%;
+          background-color: #448aff;
+        }
+      }
+    }
+
+    .intro-what {
+      padding: 3rem 0rem;
+      .intro-what__heading {
+        mat-icon {
+          font-size: 2.5rem;
+        }
+        h1 {
+          font-size: 2rem;
+          margin-top: 3px;
+        }
+      }
+      .intro-what__text {
+        padding: 0.6rem 0.4rem;
+        font-size: 1rem;
+        word-spacing: 3px;
+      }
+    }
+    .get-started {
+      padding: 3rem 0rem;
+      border: 1px solid rgb(204, 203, 203);
+      border-radius: 6px;
+      box-shadow: 0px 1px 2px rgb(0 0 0 / 12%);
+      cursor: pointer;
+      padding: 1rem 1rem;
+      transition: all 0.4s ease-in-out;
+      .get-started__text {
+        margin-top: 4px;
+        font-size: 1rem;
+      }
+      &:hover {
+        border: 1px solid #448aff;
+        color: #448aff;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .intro {
+    .intro-content {
+      padding: 2rem 2rem;
+      .intro-links {
+        .link {
+          width: 20rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .intro {
+    .intro-content {
+      padding: 2rem 0rem;
+      .intro-links {
+        .link {
+          width: 18rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,22 @@
 .sidenav {
   height: 100vh;
-  mat-sidenav {
-    position: fixed;
-    min-width: 18rem;
-    overflow: hidden;
-  }
-  mat-sidenav-content {
-    background-color: #fff;
+  mat-sidenav-container {
+    mat-sidenav {
+      position: fixed;
+      width: 20rem;
+      .mat-drawer-inner-container {
+        overflow: hidden;
+      }
+    }
+    mat-sidenav-content {
+      background-color: #fff;
+    }
   }
 }
 
-.mat-drawer-content {
-  overflow: hidden;
-}
+// .mat-drawer-content {
+//   overflow: hidden;
+// }
 .toggle-button {
   background: transparent !important;
   border: none;
@@ -37,8 +41,10 @@ mat-icon {
   .vacuole {
     width: 100%;
     background-color: rgba(223, 223, 223, 0.685);
+    color: rgb(83, 83, 83);
     position: absolute;
     bottom: 0;
+    z-index: -2;
     p {
       margin-top: 5%;
       font-weight: bolder;
@@ -48,13 +54,24 @@ mat-icon {
 }
 
 .active {
-  color: #ec407a;
+  color: #ff4081;
 }
 // medium size screen
 @media only screen and (max-width: 800px) {
   .sidenav {
-    mat-sidenav {
-      min-width: 12rem;
+    mat-sidenav-container {
+      mat-sidenav {
+        min-width: 12rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 340px) {
+  .sidenav {
+    mat-sidenav-container {
+      mat-sidenav {
+        width: 15rem;
+      }
     }
   }
 }

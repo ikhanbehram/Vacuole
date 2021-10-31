@@ -5,12 +5,17 @@ import { MainAppComponent } from './main-app.component';
 import { OrganismsCardsComponent } from './organisms-cards/organisms-cards.component';
 import { DetailsComponent } from './details/details.component';
 import { CollectionComponent } from './collection/collection.component';
+import { IntroductionComponent } from './introduction/introduction.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainAppComponent,
     children: [
+      {
+        path: 'intro',
+        component: IntroductionComponent,
+      },
       {
         path: 'type',
         component: OrganismsCardsComponent,
@@ -20,7 +25,7 @@ const routes: Routes = [
         component: OrganismsCardsComponent,
       },
       { path: 'id/:id', component: DetailsComponent },
-      { path: '', redirectTo: 'type', pathMatch: 'full' },
+      { path: '', redirectTo: 'intro', pathMatch: 'full' },
       {
         path: 'collection',
         component: CollectionComponent,

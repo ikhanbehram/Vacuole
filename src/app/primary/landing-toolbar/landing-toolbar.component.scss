@@ -5,6 +5,25 @@
   .toolbar-content {
     width: 100%;
     font-size: 1.1rem;
+    .right-content {
+      .r-nav-item4 {
+        .user-img-btn {
+          width: 2.5rem;
+          height: 2.5rem;
+          // padding: 0.6rem 0.6rem;
+          border-radius: 50%;
+          background: lighten($color: #ff4081, $amount: 30%);
+          border: none;
+          img {
+            width: 2rem;
+            object-fit: cover;
+          }
+          button mat-icon {
+            size: 1rem;
+          }
+        }
+      }
+    }
     .l-nav-item {
       cursor: pointer;
       margin: 0rem 0.8rem;

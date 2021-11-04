@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="nav-item1" fxHide.sm fxHide.xs>
+      <div class="nav-item2" fxHide.sm fxHide.xs>
         <button
           mat-flat-button
           aria-label="Example icon button with a home icon"
@@ -30,8 +30,25 @@
         </button>
       </div>
 
-      <div class="nav-item2">
-        <button mat-button routerLink="/auth">Log in</button>
+      <div class="nav-item3">
+        <button class="user-img-btn" *ngIf="isLoggedIn">
+          <img
+            [matMenuTriggerFor]="menu"
+            src="../../../assets/landing-page/download.svg"
+            alt=""
+          />
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon color="accent"> person_outline </mat-icon>Profile
+            </button>
+            <button mat-menu-item>
+              <mat-icon color="accent">logout</mat-icon> Log out
+            </button>
+          </mat-menu>
+        </button>
+        <button mat-button routerLink="/auth" *ngIf="!isLoggedIn">
+          Log in
+        </button>
       </div>
     </div>
   </div>

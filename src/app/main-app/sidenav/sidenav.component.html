@@ -12,13 +12,29 @@
         fxLayoutAlign="space-between start"
       >
         <div class="sidenav-text">
-          <p [routerLink]="['/browse', 'intro']" routerLinkActive="active">
+          <p
+            [routerLink]="['/browse', 'intro']"
+            routerLinkActive="active"
+            (click)="nodeClicked()"
+          >
             intoduction
           </p>
-          <p [routerLink]="['type', 'all']" routerLinkActive="active">All</p>
-          <p routerLink="/collection" routerLinkActive="active">My Collects</p>
+          <p
+            [routerLink]="['type', 'all']"
+            routerLinkActive="active"
+            (click)="nodeClicked()"
+          >
+            All
+          </p>
+          <p
+            routerLink="collection"
+            routerLinkActive="active"
+            (click)="nodeClicked()"
+          >
+            My Collects
+          </p>
 
-          <app-mat-tree></app-mat-tree>
+          <app-mat-tree (nodeClicked)="nodeClicked()"></app-mat-tree>
         </div>
       </div>
     </mat-sidenav>

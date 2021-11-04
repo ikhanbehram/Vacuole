@@ -27,14 +27,14 @@
       fxLayoutAlign.xs="space-around center"
       fxLayoutGap="8px"
     >
-      <div class="nav-item1">
+      <div class="r-nav-item1">
         <div class="searchInputWrapper">
           <input class="searchInput" type="text" placeholder="Search" />
           <mat-icon class="searchInputIcon">search</mat-icon>
         </div>
       </div>
 
-      <div class="r-nav-item1" fxHide.xs>
+      <div class="r-nav-item2" fxHide.xs>
         <button
           mat-icon-button
           aria-label="Example icon button with a home icon"
@@ -44,7 +44,7 @@
           </mat-icon>
         </button>
       </div>
-      <div class="r-nav-item2" fxHide.xs>
+      <div class="r-nav-item3" fxHide.xs>
         <button
           mat-icon-button
           aria-label="Example icon button with a home icon"
@@ -54,8 +54,23 @@
           </mat-icon>
         </button>
       </div>
-      <div class="r-nav-item3">
-        <button mat-button routerLink="/auth/login">Log in</button>
+      <div class="r-nav-item4">
+        <button class="user-img-btn">
+          <img
+            [matMenuTriggerFor]="menu"
+            src="../../../assets/landing-page/download.svg"
+            alt=""
+          />
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon color="accent"> person_outline </mat-icon>Profile
+            </button>
+            <button mat-menu-item>
+              <mat-icon color="accent">logout</mat-icon> Log out
+            </button>
+          </mat-menu>
+        </button>
+        <!-- <button mat-button routerLink="/auth/login">Log in</button> -->
       </div>
     </div>
   </div>

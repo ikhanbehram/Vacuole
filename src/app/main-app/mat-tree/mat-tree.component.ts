@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import {
   MatTreeFlatDataSource,
@@ -76,6 +82,7 @@ interface MicrobeNode {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MatTreeComponent implements OnInit {
+  @Output() nodeClicked = new EventEmitter<string>();
   private _transformer = (node: categoriesHelper, level: number) => {
     return {
       expandable: !!node.sub_categories && node.sub_categories.length > 0,
@@ -114,5 +121,6 @@ export class MatTreeComponent implements OnInit {
     this.router.navigate(['/browse', 'type', node.id], {
       queryParams: { parent: node.expandable },
     });
+    this.nodeClicked.emit('clicked');
   }
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,10 +9,15 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
   onSmallScreen: boolean = false;
   sidenavMode: any = 'side';
+  userLoggedin: boolean = false;
 
-  constructor(private breakPointsObserver: BreakpointObserver) {
+  constructor(
+    private breakPointsObserver: BreakpointObserver,
+    private authService: AuthService
+  ) {
     this.breakPointsObserver
       .observe([Breakpoints.HandsetPortrait] || [Breakpoints.HandsetLandscape])
       .subscribe((result) => {
@@ -20,6 +27,13 @@ export class SidenavComponent implements OnInit {
         }
       });
   }
+  nodeClicked() {
+    if (this.onSmallScreen) {
+      this.sidenav.close();
+    }
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.authService.user);
+  }
 }

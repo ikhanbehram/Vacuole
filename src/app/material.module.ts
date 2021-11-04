@@ -14,6 +14,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -33,6 +34,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatProgressBarModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    MatMenuModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -50,6 +52,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatProgressBarModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule {}

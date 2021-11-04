@@ -1,5 +1,24 @@
 .toolbar-content {
   width: 100%;
+  .right-content {
+    .nav-item3 {
+      .user-img-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        // padding: 0.6rem 0.6rem;
+        border-radius: 50%;
+        background: lighten($color: #ff4081, $amount: 30%);
+        border: none;
+        img {
+          width: 2rem;
+          object-fit: cover;
+        }
+        button mat-icon {
+          size: 1rem;
+        }
+      }
+    }
+  }
 }
 .mat-button {
   color: white;

@@ -55,7 +55,7 @@
         </button>
       </div>
       <div class="r-nav-item4">
-        <button class="user-img-btn">
+        <button class="user-img-btn" *ngIf="isLoggedIn">
           <img
             [matMenuTriggerFor]="menu"
             src="../../../assets/landing-page/download.svg"
@@ -70,7 +70,9 @@
             </button>
           </mat-menu>
         </button>
-        <!-- <button mat-button routerLink="/auth/login">Log in</button> -->
+        <button mat-button routerLink="/auth/login" *ngIf="!isLoggedIn">
+          Log in
+        </button>
       </div>
     </div>
   </div>

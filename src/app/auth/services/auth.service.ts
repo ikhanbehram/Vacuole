@@ -47,7 +47,7 @@ export class AuthService {
         tap((responseObj) => {
           this._token = responseObj.token;
           this.user = responseObj.user;
-          localStorage.setItem('token', this.token);
+          // localStorage.setItem('token', this.token);
         })
       );
   }

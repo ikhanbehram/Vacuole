@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MicrobeCard } from 'src/app/models/microbeCard.model';
 import { links, responseData } from 'src/app/models/microbesResponse.model';
 
@@ -21,13 +21,16 @@ export class OrganismsCardsComponent implements OnInit {
   routeId: string = '';
   parentNode!: string;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   renderCardView() {
     this.apiService.fetchMicrobes.subscribe((responseData) => {
       this.cards = responseData.data;
       this.links = responseData.links.slice(1, -1);
-      console.log(this.links);
       this.nextPageUrl = responseData.next_page_url;
       this.previousPageUrl = responseData.prev_page_url;
       this.loading = false;
@@ -99,5 +102,10 @@ export class OrganismsCardsComponent implements OnInit {
       let previousPageNumber = currentPageNumber - 1;
       this.onPaginate(previousPageNumber);
     }
+  }
+
+  onDetails(id: number) {
+    this.router.navigate(['/browse', 'id', id]);
+    console.log(id);
   }
 }

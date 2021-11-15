@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
+  loginSpinner: boolean = false;
   loginForm: FormGroup = new FormGroup({
     userEmailFormControl: new FormControl('', [
       Validators.email,
@@ -30,7 +31,10 @@ export class LoginComponent implements OnInit {
     let email: string = this.loginForm.value.userEmailFormControl;
     let password: string = this.loginForm.value.userPasswordFormControl;
     this.authService.logIn(email, password).subscribe((responseObj) => {
-      this.router.navigate(['/browse', 'intro']);
+      this.loginSpinner = true;
+      if (responseObj) {
+        this.router.navigate(['/browse', 'intro']);
+      }
     });
     // this.loginForm.reset();
   }

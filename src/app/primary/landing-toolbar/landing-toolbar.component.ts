@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-landing-toolbar',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingToolbarComponent implements OnInit {
   isLoggedIn: boolean = false;
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let user = this.authService.user;
+    this.authService.isAuthenticated.subscribe((bool) => {
+      this.isLoggedIn = bool;
+    });
+  }
+
+  onLogout() {
+    this.authService.logout();
+    console.log(this.authService.isAuthenticated, this.isLoggedIn);
+  }
 }

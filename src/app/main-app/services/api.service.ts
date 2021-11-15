@@ -5,6 +5,7 @@ import { map, take, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { responseData } from 'src/app/models/microbesResponse.model';
 import { inject } from '@angular/core/testing';
+import { Details } from 'src/app/models/details.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -150,5 +151,10 @@ export class ApiService {
         })
       );
     }
+  }
+
+  getDetails(id: number) {
+    const requestUrl = `${this.baseUrl}/microbes/${id}`;
+    return this.http.get<Details>(requestUrl);
   }
 }

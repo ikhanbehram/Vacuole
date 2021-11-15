@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Details } from 'src/app/models/details.interface';
 
 @Component({
   selector: 'app-details',
@@ -6,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  constructor() {}
+  details!: Details;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log('running');
+    this.route.data.subscribe((detailsData) => {
+      this.details = detailsData.details;
+    });
   }
 }

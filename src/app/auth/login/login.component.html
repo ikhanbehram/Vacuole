@@ -78,6 +78,7 @@
         </mat-error>
       </mat-form-field>
       <button
+        *ngIf="!loginSpinner"
         mat-raised-button
         color="primary"
         type="submit"
@@ -85,6 +86,7 @@
       >
         Log In
       </button>
+      <mat-spinner *ngIf="loginSpinner"></mat-spinner>
     </form>
   </div>
 </section>

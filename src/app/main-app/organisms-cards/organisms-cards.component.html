@@ -41,7 +41,7 @@
     <mat-card class="organism-card" *ngFor="let card of cards">
       <img mat-card-image src="{{ card.image }}" alt="Photo of a Microbe" />
       <mat-card-content>
-        <h2 routerLink="/browse/id/a">{{ card.title }}</h2>
+        <h2 (click)="onDetails(card.id)">{{ card.title }}</h2>
         <p>
           {{ card.description }}
         </p>
@@ -50,7 +50,7 @@
         <button mat-icon-button color="primary">
           <mat-icon>turned_in_not</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="onDetails(card.id)">
           <mat-icon>notes</mat-icon>
         </button>
       </mat-card-actions>

@@ -41,8 +41,9 @@
             <button mat-menu-item>
               <mat-icon color="accent"> person_outline </mat-icon>Profile
             </button>
-            <button mat-menu-item>
-              <mat-icon color="accent">logout</mat-icon> Log out
+            <button mat-menu-item (click)="onLogout()">
+              <mat-icon color="accent">logout</mat-icon>
+              Log out
             </button>
           </mat-menu>
         </button>

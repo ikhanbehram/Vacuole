@@ -15,7 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [
@@ -35,6 +35,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatPaginatorModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     FlexLayoutModule,
@@ -53,6 +54,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatPaginatorModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

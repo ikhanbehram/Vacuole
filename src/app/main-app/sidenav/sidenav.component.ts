@@ -33,7 +33,5 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    console.log(this.authService.user);
-  }
+  ngOnInit(): void {}
 }

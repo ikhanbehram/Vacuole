@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { User } from 'src/app/models/User.interface';
 
@@ -14,7 +15,8 @@ interface AuthResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private _token = '';
+  isAuthenticated = new BehaviorSubject<boolean>(false);
+  private _token!: string;
   user!: User;
   constructor(
     private http: HttpClient,
@@ -47,8 +49,22 @@ export class AuthService {
         tap((responseObj) => {
           this._token = responseObj.token;
           this.user = responseObj.user;
-          // localStorage.setItem('token', this.token);
+          localStorage.setItem('token', this.token);
+          this.isAuthenticated.next(true);
         })
       );
+  }
+
+  autoLogin() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isAuthenticated.next(true);
+    }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.isAuthenticated.next(false);
+    console.log(this.isAuthenticated);
   }
 }

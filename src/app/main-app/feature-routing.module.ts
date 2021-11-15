@@ -6,6 +6,8 @@ import { OrganismsCardsComponent } from './organisms-cards/organisms-cards.compo
 import { DetailsComponent } from './details/details.component';
 import { CollectionComponent } from './collection/collection.component';
 import { IntroductionComponent } from './introduction/introduction.component';
+import { DetailsResolver } from './details/details.resolver';
+import { AuthGuardService } from '../auth/services/auth.guard';
 
 const routes: Routes = [
   {
@@ -24,11 +26,18 @@ const routes: Routes = [
         path: 'type/:id',
         component: OrganismsCardsComponent,
       },
-      { path: 'id/:id', component: DetailsComponent },
+      {
+        path: 'id/:id',
+        component: DetailsComponent,
+        resolve: {
+          details: DetailsResolver,
+        },
+      },
       { path: '', redirectTo: 'intro', pathMatch: 'full' },
       {
         path: 'collection',
         component: CollectionComponent,
+        canActivate: [AuthGuardService],
       },
     ],
   },

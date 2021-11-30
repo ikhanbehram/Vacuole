@@ -44,12 +44,10 @@
         <input
           type="email"
           matInput
-          formControlName="userEmailFormControl"
+          formControlName="email"
           placeholder="e.g Max philip"
         />
-        <mat-error
-          *ngIf="loginForm.controls.userEmailFormControl.hasError('required')"
-        >
+        <mat-error *ngIf="loginForm.controls.email.hasError('required')">
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -58,25 +56,21 @@
         <input
           type="password"
           matInput
-          formControlName="userPasswordFormControl"
+          formControlName="password"
           placeholder="Password"
         />
 
-        <mat-error
-          *ngIf="
-            loginForm.controls.userPasswordFormControl.hasError('required')
-          "
-        >
+        <mat-error *ngIf="loginForm.controls.password.hasError('required')">
           you must enter your password
         </mat-error>
-        <mat-error
-          *ngIf="
-            loginForm.controls.userPasswordFormControl.hasError('minlength')
-          "
-        >
+        <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">
           password must be 8 characters long
         </mat-error>
       </mat-form-field>
+      <div class="error-msg" fxLayout="row" fxLayoutGap="10px" *ngIf="errorMsg">
+        <h4>{{ errorMsg }}</h4>
+        <mat-icon color="warn">error</mat-icon>
+      </div>
       <button
         *ngIf="!loginSpinner"
         mat-raised-button

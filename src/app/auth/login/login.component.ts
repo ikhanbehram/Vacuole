@@ -9,33 +9,37 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  loginSpinner: boolean = false;
+  errorMsg!: string;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
-  loginSpinner: boolean = false;
+
   loginForm: FormGroup = new FormGroup({
-    userEmailFormControl: new FormControl('', [
-      Validators.email,
-      Validators.required,
-    ]),
-    userPasswordFormControl: new FormControl('', [
+    email: new FormControl('', [Validators.email, Validators.required]),
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
     ]),
   });
 
   loginFormSubmit() {
+    this.loginSpinner = true;
     if (!this.loginForm.valid) {
       return;
     }
-    let email: string = this.loginForm.value.userEmailFormControl;
-    let password: string = this.loginForm.value.userPasswordFormControl;
-    this.authService.logIn(email, password).subscribe((responseObj) => {
-      this.loginSpinner = true;
-      if (responseObj) {
-        this.router.navigate(['/browse', 'intro']);
+    const { email, password } = this.loginForm.value;
+    this.authService.logIn(email, password).subscribe(
+      (responseObj) => {
+        if (responseObj) {
+          this.router.navigate(['/browse', 'intro']);
+        }
+      },
+      (err) => {
+        this.loginSpinner = false;
+        this.errorMsg = err.error.error;
       }
-    });
+    );
     // this.loginForm.reset();
   }
 }

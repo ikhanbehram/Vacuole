@@ -4,14 +4,15 @@ import { Categories } from 'src/app/models/categories.model';
 import { map, take, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { responseData } from 'src/app/models/microbesResponse.model';
-import { inject } from '@angular/core/testing';
 import { Details } from 'src/app/models/details.interface';
+import { MicrobeCard } from 'src/app/models/microbeCard.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   private microbeCards = new Subject<responseData>();
+  private collectedMicrobes = new Subject<MicrobeCard[]>();
 
   constructor(
     private http: HttpClient,
@@ -19,7 +20,11 @@ export class ApiService {
   ) {}
 
   get fetchMicrobes() {
-    return this.microbeCards.asObservable();
+    return this.microbeCards;
+  }
+
+  get fetchCollectedMicrobes() {
+    return this.collectedMicrobes;
   }
 
   getMicrobeCategories() {
@@ -156,5 +161,16 @@ export class ApiService {
   getDetails(id: number) {
     const requestUrl = `${this.baseUrl}/microbes/${id}`;
     return this.http.get<Details>(requestUrl);
+  }
+
+  getCollectedMicrobes() {
+    return this.http.get<responseData>(`${this.baseUrl}/collection`).pipe(
+      map((responseData) => {
+        return responseData.data;
+      }),
+      tap((data) => {
+        this.collectedMicrobes.next(data);
+      })
+    );
   }
 }

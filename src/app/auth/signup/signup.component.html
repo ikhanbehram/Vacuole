@@ -41,12 +41,10 @@
         <input
           type="text"
           matInput
-          formControlName="userNameFormControl"
-          placeholder="Maxphilip@xyz.com"
+          formControlName="userName"
+          placeholder="e-g Muhammad"
         />
-        <mat-error
-          *ngIf="signupForm.controls.userEmailFormControl.hasError('required')"
-        >
+        <mat-error *ngIf="signupForm.controls.userName.hasError('required')">
           User name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -55,12 +53,10 @@
         <input
           type="email"
           matInput
-          formControlName="userEmailFormControl"
-          placeholder="e.g Max philip"
+          formControlName="email"
+          placeholder="e.g Abdullah@email.com"
         />
-        <mat-error
-          *ngIf="signupForm.controls.userEmailFormControl.hasError('required')"
-        >
+        <mat-error *ngIf="signupForm.controls.email.hasError('required')">
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -70,27 +66,36 @@
         <input
           type="password"
           matInput
-          formControlName="userPasswordFormControl"
+          formControlName="password"
           placeholder="Password"
         />
 
-        <mat-error
-          *ngIf="
-            signupForm.controls.userPasswordFormControl.hasError('required')
-          "
-        >
+        <mat-error *ngIf="signupForm.controls.password.hasError('required')">
           you must enter your password
         </mat-error>
-        <mat-error
-          *ngIf="
-            signupForm.controls.userPasswordFormControl.hasError('minlength')
-          "
-        >
+        <mat-error *ngIf="signupForm.controls.password.hasError('minlength')">
           password must be 8 characters long
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Sign up</button>
-      <button mat-raised-button color="warn" type="submit">
+      <mat-spinner *ngIf="signupSpinner"></mat-spinner>
+      <div class="error-msg" fxLayout="row" fxLayoutGap="10px" *ngIf="errorMsg">
+        <h4>{{ errorMsg }}</h4>
+        <mat-icon color="warn">error</mat-icon>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        *ngIf="!signupSpinner"
+      >
+        Sign up
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        type="submit"
+        *ngIf="!signupSpinner"
+      >
         SignUp with <strong>Google</strong>
       </button>
     </form>

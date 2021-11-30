@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { LandingToolbarComponent } from './primary/landing-toolbar/landing-toolb
 import { PrimaryComponent } from './primary/primary.component';
 import { environment } from 'src/environments/environment';
 import { Wildcard404Component } from './primary/wildcard404/wildcard404.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import { Wildcard404Component } from './primary/wildcard404/wildcard404.componen
     AuthModule,
     HttpClientModule,
   ],
-  providers: [{ provide: 'BASE_API_URL', useValue: environment.apiUrl }],
+  providers: [
+    { provide: 'BASE_API_URL', useValue: environment.apiUrl },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

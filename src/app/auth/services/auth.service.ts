@@ -27,6 +27,38 @@ export class AuthService {
     return this._token;
   }
 
+  signUp(userName: string, email: string, password: string) {
+    return this.http
+      .post<AuthResponse>(
+        `${this.baseurl}/register`,
+        {
+          name: userName,
+          email: email,
+          password: password,
+        },
+        {
+          headers: new HttpHeaders({
+            Accept: 'application/json',
+          }),
+        }
+      )
+      .pipe(
+        map((resData) => {
+          const responseObj = {
+            token: resData.data.token,
+            user: resData.data.user,
+          };
+          return responseObj;
+        }),
+        tap((responseObj) => {
+          this._token = responseObj.token;
+          this.user = responseObj.user;
+          localStorage.setItem('token', this.token);
+          this.isAuthenticated.next(true);
+        })
+      );
+  }
+
   logIn(email: string, password: string) {
     return this.http
       .post<AuthResponse>(

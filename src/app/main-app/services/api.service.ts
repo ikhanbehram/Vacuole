@@ -38,7 +38,6 @@ export class ApiService {
 
   getAllMicrobes(pageNo?: number) {
     let requestUrl = `${this.baseUrl}/microbes`;
-    console.log(requestUrl);
     if (pageNo) {
       console.info('We are paginating');
       const params = new HttpParams().set('page', pageNo);
@@ -172,5 +171,23 @@ export class ApiService {
         this.collectedMicrobes.next(data);
       })
     );
+  }
+  //for collecting and deCollecting microbes
+  collectDecollectMicrobe(collected: boolean, id: number) {
+    if (collected) {
+      this.deCollectMicrobe(id);
+    } else {
+      this.collectMicrobe(id);
+    }
+  }
+  collectMicrobe(id: number) {
+    this.http.patch(`${this.baseUrl}/collect/${id}`, '').subscribe((res) => {
+      console.log(res);
+    });
+  }
+  deCollectMicrobe(id: number) {
+    this.http.patch(`${this.baseUrl}/decollect/${id}`, '').subscribe((res) => {
+      console.log(res);
+    });
   }
 }

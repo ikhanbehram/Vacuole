@@ -3,4 +3,5 @@ export interface MicrobeCard {
   image: string;
   title: string;
   description: string;
+  collected: boolean;
 }

@@ -39,7 +39,6 @@ export class ApiService {
   getAllMicrobes(pageNo?: number) {
     let requestUrl = `${this.baseUrl}/microbes`;
     if (pageNo) {
-      console.info('We are paginating');
       const params = new HttpParams().set('page', pageNo);
       return this.http.get<responseData>(requestUrl, { params: params }).pipe(
         map((resData) => {
@@ -56,7 +55,6 @@ export class ApiService {
         })
       );
     } else {
-      console.info('We are not paginating');
       return this.http.get<responseData>(requestUrl).pipe(
         map((resData) => {
           const responseObj: responseData = {
@@ -85,7 +83,6 @@ export class ApiService {
   getParentMicrobes(id: number, pageNo?: number) {
     let requestUrl = `${this.baseUrl}/categories/${id}`;
     if (pageNo) {
-      console.info('We are paginating');
       const params = new HttpParams().set('page', pageNo);
       return this.http.get<responseData>(requestUrl, { params: params }).pipe(
         map((resData) => {
@@ -102,7 +99,6 @@ export class ApiService {
         })
       );
     } else {
-      console.info('We are not paginating');
       return this.http.get<responseData>(requestUrl).pipe(
         map((resData) => {
           const responseObj: responseData = {
@@ -122,7 +118,6 @@ export class ApiService {
   getChildMicrobes(id: number, pageNo?: number) {
     let requestUrl = `${this.baseUrl}/sub-categories/${id}`;
     if (pageNo) {
-      console.info('We are paginating');
       const params = new HttpParams().set('page', pageNo);
       return this.http.get<responseData>(requestUrl, { params: params }).pipe(
         map((resData) => {
@@ -132,6 +127,7 @@ export class ApiService {
             prev_page_url: resData.prev_page_url,
             links: resData.links,
           };
+
           return responseObj;
         }),
         tap((responseObj) => {
@@ -139,7 +135,6 @@ export class ApiService {
         })
       );
     } else {
-      console.info('We are not paginating');
       return this.http.get<responseData>(requestUrl).pipe(
         map((resData) => {
           const responseObj: responseData = {
@@ -164,6 +159,7 @@ export class ApiService {
 
   getCollectedMicrobes() {
     return this.http.get<responseData>(`${this.baseUrl}/collection`).pipe(
+      take(1),
       map((responseData) => {
         return responseData.data;
       }),
@@ -175,19 +171,15 @@ export class ApiService {
   //for collecting and deCollecting microbes
   collectDecollectMicrobe(collected: boolean, id: number) {
     if (collected) {
-      this.deCollectMicrobe(id);
+      return this.deCollectMicrobe(id);
     } else {
-      this.collectMicrobe(id);
+      return this.collectMicrobe(id);
     }
   }
   collectMicrobe(id: number) {
-    this.http.patch(`${this.baseUrl}/collect/${id}`, '').subscribe((res) => {
-      console.log(res);
-    });
+    return this.http.get(`${this.baseUrl}/collect/${id}`);
   }
   deCollectMicrobe(id: number) {
-    this.http.patch(`${this.baseUrl}/decollect/${id}`, '').subscribe((res) => {
-      console.log(res);
-    });
+    return this.http.get(`${this.baseUrl}/decollect/${id}`);
   }
 }

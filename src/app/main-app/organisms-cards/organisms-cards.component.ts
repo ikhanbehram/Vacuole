@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MicrobeCard } from 'src/app/models/microbeCard.model';
-import { links, responseData } from 'src/app/models/microbesResponse.model';
+import { links } from 'src/app/models/microbesResponse.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ApiService } from '../services/api.service';
 
@@ -24,7 +25,8 @@ export class OrganismsCardsComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snakeBar: MatSnackBar
   ) {}
 
   renderCardView() {
@@ -58,10 +60,12 @@ export class OrganismsCardsComponent implements OnInit {
         this.apiService
           .getMicrobesByCategories(this.parentNode, +this.routeId)
           .subscribe((resData) => {
+            console.log(resData);
             this.loading = false;
           });
       }
     });
+    console.log(this.cards);
   }
 
   onPaginate(pageNo: number) {
@@ -106,10 +110,32 @@ export class OrganismsCardsComponent implements OnInit {
 
   onDetails(id: number) {
     this.router.navigate(['/browse', 'id', id]);
-    console.log(id);
   }
   //for collecting and decollecting microbes
-  onMicrobeCollect(collected: boolean, id: number) {
-    this.apiService.collectDecollectMicrobe(collected, id);
+  onMicrobeCollect(
+    collected: boolean,
+    id: number,
+    message: string,
+    action: string
+  ) {
+    this.apiService.collectDecollectMicrobe(collected, id).subscribe(
+      (res) => {
+        console.log(res);
+
+        this.snakeBar.open(collected ? 'Decollected' : 'Collected!', '', {
+          duration: 1000,
+        });
+      },
+      (err) => {
+        if (err) {
+          const snackBarRef = this.snakeBar.open(message, action, {
+            duration: 1000,
+          });
+          snackBarRef.onAction().subscribe(() => {
+            this.router.navigate(['/auth', 'login']);
+          });
+        }
+      }
+    );
   }
 }

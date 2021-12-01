@@ -48,9 +48,18 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-icon-button color="primary">
-          <mat-icon (click)="onMicrobeCollect(card.collected, card.id)">{{
-            card.collected ? "turned_in" : "turned_in_not"
-          }}</mat-icon>
+          <mat-icon
+            (click)="
+              onMicrobeCollect(
+                card.collected,
+                card.id,
+                'Log in to enable collect functionality',
+                'Log in'
+              );
+              card.collected = !card.collected
+            "
+            >{{ card.collected ? "turned_in" : "turned_in_not" }}</mat-icon
+          >
         </button>
         <button mat-icon-button (click)="onDetails(card.id)">
           <mat-icon>notes</mat-icon>

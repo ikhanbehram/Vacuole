@@ -15,7 +15,20 @@
     >
       <div class="nav-item1">
         <div class="searchInputWrapper">
-          <input class="searchInput" type="text" placeholder="Search" />
+          <input
+            class="searchInput"
+            type="text"
+            placeholder="Search"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of ['SARs', 'Bacteriophage', 'Omicrone']"
+              [value]="option"
+            >
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
           <mat-icon class="searchInputIcon">search</mat-icon>
         </div>
       </div>

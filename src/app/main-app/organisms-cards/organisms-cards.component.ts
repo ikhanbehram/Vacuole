@@ -109,6 +109,7 @@ export class OrganismsCardsComponent implements OnInit {
   }
 
   onDetails(id: number) {
+    this.loading = true;
     this.router.navigate(['/browse', 'id', id]);
   }
   //for collecting and decollecting microbes

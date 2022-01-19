@@ -1,7 +1,7 @@
 <mat-progress-bar
   mode="indeterminate"
   color="primary"
-  *ngIf="!message && collectedMicrobes.length < 1"
+  *ngIf="(!message && collectedMicrobes.length < 1) || loading"
 ></mat-progress-bar>
 <section class="collection">
   <div

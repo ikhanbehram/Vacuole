@@ -11,6 +11,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
+  loading = false;
   collectedMicrobes: MicrobeCard[] = [];
   message!: string;
   constructor(
@@ -50,6 +51,7 @@ export class CollectionComponent implements OnInit {
     });
   }
   onDetails(id: number) {
+    this.loading = true;
     this.router.navigate(['/browse', 'id', id]);
   }
 }

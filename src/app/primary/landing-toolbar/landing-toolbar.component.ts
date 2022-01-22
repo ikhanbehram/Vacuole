@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { SearchApiService } from 'src/app/main-app/services/search-api.service';
+import { Search } from 'src/app/models/search.model';
 
 @Component({
   selector: 'app-landing-toolbar',
@@ -7,8 +10,14 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./landing-toolbar.component.scss'],
 })
 export class LandingToolbarComponent implements OnInit {
+  searchControl!: string;
   isLoggedIn: boolean = false;
-  constructor(private authService: AuthService) {}
+  searchData!: Search[];
+  constructor(
+    public dialog: MatDialog,
+    private authService: AuthService,
+    private searchApi: SearchApiService
+  ) {}
 
   ngOnInit(): void {
     let user = this.authService.user;
@@ -21,4 +30,11 @@ export class LandingToolbarComponent implements OnInit {
     this.authService.logout();
     console.log(this.authService.isAuthenticated, this.isLoggedIn);
   }
+  onChangeSearch() {
+    this.searchApi.searchMicrobes(this.searchControl).subscribe((response) => {
+      console.log(response.data);
+      this.searchData = response.data;
+    });
+  }
+  onSubmitOption(id: number) {}
 }

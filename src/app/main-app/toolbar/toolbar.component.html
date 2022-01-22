@@ -20,16 +20,30 @@
             type="text"
             placeholder="Search"
             [matAutocomplete]="auto"
+            [(ngModel)]="searchControl"
+            (ngModelChange)="onChangeSearch()"
           />
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             <mat-option
-              *ngFor="let option of ['SARs', 'Bacteriophage', 'Omicrone']"
-              [value]="option"
+              *ngFor="let option of searchData"
+              [value]="option.title"
+              (click)="onSubmitOption(option.id)"
             >
-              {{ option }}
+              <div
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="16px"
+              >
+                <img
+                  class="example-option-img"
+                  aria-hidden
+                  [src]="option.image"
+                  height="25"
+                />
+                <span>{{ option.title }}</span>
+              </div>
             </mat-option>
           </mat-autocomplete>
-          <mat-icon class="searchInputIcon">search</mat-icon>
         </div>
       </div>
 

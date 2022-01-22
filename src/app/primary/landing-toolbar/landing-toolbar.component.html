@@ -29,8 +29,35 @@
     >
       <div class="r-nav-item1">
         <div class="searchInputWrapper">
-          <input class="searchInput" type="text" placeholder="Search" />
-          <mat-icon class="searchInputIcon">search</mat-icon>
+          <input
+            class="searchInput"
+            type="text"
+            placeholder="Search"
+            [matAutocomplete]="auto"
+            [(ngModel)]="searchControl"
+            (ngModelChange)="onChangeSearch()"
+          />
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of searchData"
+              [value]="option.title"
+              (click)="onSubmitOption(option.id)"
+            >
+              <div
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="16px"
+              >
+                <img
+                  class="example-option-img"
+                  aria-hidden
+                  [src]="option.image"
+                  height="25"
+                />
+                <span>{{ option.title }}</span>
+              </div>
+            </mat-option>
+          </mat-autocomplete>
         </div>
       </div>
 

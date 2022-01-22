@@ -10,7 +10,7 @@ import { OrganismsCardsComponent } from './organisms-cards/organisms-cards.compo
 import { DetailsComponent } from './details/details.component';
 import { CollectionComponent } from './collection/collection.component';
 import { IntroductionComponent } from './introduction/introduction.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
     DetailsComponent,
     CollectionComponent,
     IntroductionComponent,
-  
   ],
-  imports: [CommonModule, FeatureRoutingModule, MaterialModule],
+  imports: [CommonModule, FeatureRoutingModule, MaterialModule, FormsModule],
 })
 export class FeatureModule {}

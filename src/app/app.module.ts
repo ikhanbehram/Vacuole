@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +34,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     FeatureModule,
     AuthModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: 'BASE_API_URL', useValue: environment.apiUrl },

@@ -75,7 +75,7 @@
     class="pagination"
     fxLayout="row"
     fxLayoutAlign="center center"
-    *ngIf="!loading"
+    *ngIf="!loading || (!nextPageUrl && !previousPageUrl)"
   >
     <mat-icon
       *ngIf="previousPageUrl"

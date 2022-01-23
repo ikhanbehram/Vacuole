@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Search } from 'src/app/models/search.model';
 import { SearchApiService } from '../services/search-api.service';
@@ -14,6 +15,7 @@ export class ToolbarComponent implements OnInit {
   isLoggedIn: boolean = false;
   searchData!: Search[];
   constructor(
+    private router: Router,
     public dialog: MatDialog,
     private authService: AuthService,
     private searchApi: SearchApiService
@@ -37,6 +39,6 @@ export class ToolbarComponent implements OnInit {
     });
   }
   onSubmitOption(id: number) {
-    
+    this.router.navigate(['/browse', 'id', id]);
   }
 }

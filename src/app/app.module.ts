@@ -34,7 +34,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     FeatureModule,
     AuthModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     { provide: 'BASE_API_URL', useValue: environment.apiUrl },

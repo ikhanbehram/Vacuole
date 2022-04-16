@@ -42,9 +42,7 @@
       <img mat-card-image src="{{ card.image }}" alt="Photo of a Microbe" />
       <mat-card-content>
         <h2 (click)="onDetails(card.id)">{{ card.title }}</h2>
-        <p>
-          {{ card.description }}
-        </p>
+        <p [innerHTML]="card.excerpt"></p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-icon-button color="primary">

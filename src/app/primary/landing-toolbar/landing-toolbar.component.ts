@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { SearchApiService } from 'src/app/main-app/services/search-api.service';
 import { Search } from 'src/app/models/search.model';
@@ -16,7 +17,8 @@ export class LandingToolbarComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
-    private searchApi: SearchApiService
+    private searchApi: SearchApiService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +38,7 @@ export class LandingToolbarComponent implements OnInit {
       this.searchData = response.data;
     });
   }
-  onSubmitOption(id: number) {}
+  onSubmitOption(id: number) {
+    this.router.navigate(['/browse', 'id', id]);
+  }
 }

@@ -51,7 +51,7 @@ export class OrganismsCardsComponent implements OnInit {
       /////condition for getting All microbes
       if (this.routeId == 'all' || !this.routeId) {
         this.loading = true;
-        this.apiService.getAllMicrobes().subscribe((data) => {
+        this.apiService.getAllMicrobes().subscribe(() => {
           this.loading = false;
         });
       } else {
@@ -65,7 +65,6 @@ export class OrganismsCardsComponent implements OnInit {
           });
       }
     });
-    console.log(this.cards);
   }
 
   onPaginate(pageNo: number) {

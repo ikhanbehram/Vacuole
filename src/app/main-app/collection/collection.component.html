@@ -26,10 +26,10 @@
     <div class="message">
       <h1>{{ message }}</h1>
     </div>
-    <mat-card class="example-card" *ngFor="let microbe of collectedMicrobes">
+    <mat-card *ngFor="let microbe of collectedMicrobes">
       <mat-card-title-group>
         <mat-card-title>{{ microbe.title }}</mat-card-title>
-        <mat-card-subtitle>{{ microbe.description }}</mat-card-subtitle>
+        <mat-card-subtitle [innerHTML]="microbe.excerpt"></mat-card-subtitle>
         <img mat-card-sm-image [src]="microbe.image" />
       </mat-card-title-group>
       <mat-card-actions

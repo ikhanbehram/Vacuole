@@ -11,6 +11,7 @@ import { DetailsComponent } from './details/details.component';
 import { CollectionComponent } from './collection/collection.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { FormsModule } from '@angular/forms';
+import { SafeHtmlPipe } from '../customPipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     DetailsComponent,
     CollectionComponent,
     IntroductionComponent,
+    SafeHtmlPipe,
   ],
   imports: [CommonModule, FeatureRoutingModule, MaterialModule, FormsModule],
 })

@@ -19,6 +19,10 @@
       width: 16rem;
       img {
         border-radius: 10px;
+        object-fit: cover;
+      }
+      mat-card-subtitle {
+        margin-top: 1rem;
       }
     }
   }

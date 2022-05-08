@@ -188,4 +188,11 @@ export class ApiService {
     const requestUrl = `${this.baseUrl}/microbes/${microbeId}/rating`;
     return this.http.post(requestUrl, { rating });
   }
+
+  postMicrobeComment(microbeId: number, comment: string) {
+    const requestUrl = `${this.baseUrl}/microbes/${microbeId}/comments`;
+    return this.http.post(requestUrl, {
+      comment,
+    });
+  }
 }

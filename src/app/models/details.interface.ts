@@ -4,4 +4,14 @@ export interface Details {
   image: string;
   title: string;
   rating: number;
+  comments: [
+    {
+      comment: string;
+      user: {
+        id: number;
+        name: string;
+        image: string;
+      };
+    }
+  ];
 }

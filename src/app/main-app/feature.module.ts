@@ -12,6 +12,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from '../customPipes/safe-html.pipe';
+import { NgRatingBarModule } from 'ng-rating-bar';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,12 @@ import { SafeHtmlPipe } from '../customPipes/safe-html.pipe';
     IntroductionComponent,
     SafeHtmlPipe,
   ],
-  imports: [CommonModule, FeatureRoutingModule, MaterialModule, FormsModule],
+  imports: [
+    CommonModule,
+    FeatureRoutingModule,
+    MaterialModule,
+    FormsModule,
+    NgRatingBarModule,
+  ],
 })
 export class FeatureModule {}

@@ -1,6 +1,8 @@
 .microbe-details {
   background-color: #fff;
+  word-break: break-all;
   padding: 2rem 4rem;
+
   .intro {
     width: 80%;
     .intro-img {
@@ -19,6 +21,11 @@
         margin-top: -1.2rem;
         color: darkgrey;
       }
+    }
+  }
+  .dynamic-content > * {
+    iframe {
+      max-width: 100% !important;
     }
   }
   .detail-text {

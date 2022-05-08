@@ -182,4 +182,10 @@ export class ApiService {
   deCollectMicrobe(id: number) {
     return this.http.get(`${this.baseUrl}/decollect/${id}`);
   }
+
+  //Function API call for rating API
+  rateMicrobe(microbeId: number, rating: number) {
+    const requestUrl = `${this.baseUrl}/microbes/${microbeId}/rating`;
+    return this.http.post(requestUrl, { rating });
+  }
 }

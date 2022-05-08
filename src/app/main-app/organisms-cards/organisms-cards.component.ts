@@ -60,7 +60,6 @@ export class OrganismsCardsComponent implements OnInit {
         this.apiService
           .getMicrobesByCategories(this.parentNode, +this.routeId)
           .subscribe((resData) => {
-            console.log(resData);
             this.loading = false;
           });
       }

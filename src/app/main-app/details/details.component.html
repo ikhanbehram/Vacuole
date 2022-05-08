@@ -6,8 +6,15 @@
     <div class="intro-text">
       <h1>{{ details.title }}</h1>
     </div>
+    <div class="rating">
+      <ng-rating-bar
+        (valueChange)="selectRating($event)"
+        [value]="details.rating"
+        [ratingCount]="5"
+      ></ng-rating-bar>
+    </div>
   </div>
-  <div>
+  <div class="dynamic-content">
     <p [innerHTML]="details.description | safeHtml"></p>
   </div>
 </section>

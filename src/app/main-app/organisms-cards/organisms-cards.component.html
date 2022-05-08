@@ -49,6 +49,11 @@
         <button mat-icon-button (click)="onDetails(card.id)">
           <mat-icon>notes</mat-icon>
         </button>
+        <ng-rating-bar
+          [value]="card.rating"
+          [ratingCount]="5"
+          [disabled]="true"
+        ></ng-rating-bar>
       </mat-card-actions>
     </mat-card>
 

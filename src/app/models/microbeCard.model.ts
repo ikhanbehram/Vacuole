@@ -5,4 +5,5 @@ export interface MicrobeCard {
   excerpt: string;
   description: string;
   collected: boolean;
+  rating: number;
 }

@@ -30,9 +30,7 @@ export class CollectionComponent implements OnInit {
           this.message = 'No items collected yet';
         }
       },
-      (err) => {
-        console.log(err);
-      }
+      () => {}
     );
     this.auth.isAuthenticated.subscribe((bool) => {
       if (bool) {
@@ -47,7 +45,6 @@ export class CollectionComponent implements OnInit {
     this.apiService.deCollectMicrobe(id).subscribe((res) => {
       this.snackbar.open('Decollected', '', { duration: 1000 });
       this.apiService.getCollectedMicrobes().subscribe();
-      console.log(res);
     });
   }
   onDetails(id: number) {

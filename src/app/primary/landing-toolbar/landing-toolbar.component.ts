@@ -30,11 +30,9 @@ export class LandingToolbarComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
-    console.log(this.authService.isAuthenticated, this.isLoggedIn);
   }
   onChangeSearch() {
     this.searchApi.searchMicrobes(this.searchControl).subscribe((response) => {
-      console.log(response.data);
       this.searchData = response.data;
     });
   }

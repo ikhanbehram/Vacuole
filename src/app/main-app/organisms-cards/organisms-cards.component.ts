@@ -118,9 +118,7 @@ export class OrganismsCardsComponent implements OnInit {
     action: string
   ) {
     this.apiService.collectDecollectMicrobe(collected, id).subscribe(
-      (res) => {
-        console.log(res);
-
+      () => {
         this.snakeBar.open(collected ? 'Decollected' : 'Collected!', '', {
           duration: 1000,
         });

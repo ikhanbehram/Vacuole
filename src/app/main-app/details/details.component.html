@@ -44,7 +44,9 @@
       >
         Submit
       </button>
-      <p *ngIf="loading">Loading...</p>
+      <p *ngIf="loading">
+        <mat-spinner diameter="40"></mat-spinner>
+      </p>
     </div>
   </div>
 </div>

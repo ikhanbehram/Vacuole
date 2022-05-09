@@ -18,35 +18,37 @@
     <p [innerHTML]="details.description | safeHtml"></p>
   </div>
 </section>
-<div class="comment-section">
-  <h3>Comment Sections</h3>
-  <div class="comments-wrapper">
-    <div class="comments" *ngFor="let comment of details.comments">
-      <h4 class="comment-user-name">{{ comment.user.name | uppercase }}</h4>
-      <p class="comment-text">{{ comment.comment }}</p>
+<mat-card>
+  <div class="comment-section">
+    <h3>Comment Sections</h3>
+    <div class="comments-wrapper">
+      <div class="comments" *ngFor="let comment of details.comments">
+        <h4 class="comment-user-name">{{ comment.user.name | uppercase }}</h4>
+        <p class="comment-text">{{ comment.comment }}</p>
+      </div>
+    </div>
+    <div
+      class="comment-input-wrapper"
+      fxLayout
+      fxLayoutAlign="space-between center"
+    >
+      <mat-form-field class="comment-input" appearance="fill" color="accent">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput #comment maxlength="600"></textarea>
+      </mat-form-field>
+      <div class="submit-options">
+        <button
+          *ngIf="!loading"
+          mat-flat-button
+          color="accent"
+          (click)="onSubmitComment(comment)"
+        >
+          Submit
+        </button>
+        <p *ngIf="loading">
+          <mat-spinner diameter="40"></mat-spinner>
+        </p>
+      </div>
     </div>
   </div>
-  <div
-    class="comment-input-wrapper"
-    fxLayout
-    fxLayoutAlign="space-between center"
-  >
-    <mat-form-field class="comment-input" appearance="fill" color="accent">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput #comment maxlength="600"></textarea>
-    </mat-form-field>
-    <div class="submit-options">
-      <button
-        *ngIf="!loading"
-        mat-flat-button
-        color="accent"
-        (click)="onSubmitComment(comment)"
-      >
-        Submit
-      </button>
-      <p *ngIf="loading">
-        <mat-spinner diameter="40"></mat-spinner>
-      </p>
-    </div>
-  </div>
-</div>
+</mat-card>

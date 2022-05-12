@@ -12,6 +12,7 @@
     color: white;
     h1.context-heading {
       font-size: 4rem;
+      letter-spacing: .55rem;
     }
     h3.context-slogan {
       font-size: 1.35rem;
@@ -64,8 +65,18 @@
 .footer {
   margin-top: 8rem;
   width: 100%;
-  height: 20rem;
+  height: 5rem;
   background-color: #ff4081;
+  color: white;
+  h1{
+    margin: 0;
+    letter-spacing: .7rem;
+    font-weight: bold;
+  }
+  p{
+    opacity: .7;
+    letter-spacing: .35rem;
+  }
 }
 
 //Medium screen queries

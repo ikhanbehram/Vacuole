@@ -12,6 +12,7 @@
         fxLayoutAlign="space-between start"
       >
         <div class="sidenav-text">
+          <p [routerLink]="['/welcome']" (click)="nodeClicked()">Home</p>
           <p
             [routerLink]="['/browse', 'intro']"
             routerLinkActive="active"

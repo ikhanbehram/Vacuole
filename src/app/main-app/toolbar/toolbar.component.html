@@ -59,11 +59,9 @@
 
       <div class="nav-item3">
         <button class="user-img-btn" *ngIf="isLoggedIn">
-          <img
-            [matMenuTriggerFor]="menu"
-            src="../../../assets/landing-page/download.svg"
-            alt=""
-          />
+          <div [matMenuTriggerFor]="menu">
+            <mat-icon color="primary"> person_outline </mat-icon>
+          </div>
           <mat-menu #menu="matMenu">
             <button mat-menu-item>
               <mat-icon color="accent"> person_outline </mat-icon>Profile

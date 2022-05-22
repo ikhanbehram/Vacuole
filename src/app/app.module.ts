@@ -16,6 +16,7 @@ import { PrimaryComponent } from './primary/primary.component';
 import { environment } from 'src/environments/environment';
 import { Wildcard404Component } from './primary/wildcard404/wildcard404.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     AuthModule,
     HttpClientModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerImmediately',
+    }),
   ],
   providers: [
     { provide: 'BASE_API_URL', useValue: environment.apiUrl },

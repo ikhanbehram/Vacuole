@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Details } from 'src/app/models/details.interface';
@@ -8,6 +8,7 @@ import { ApiService } from '../services/api.service';
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DetailsComponent implements OnInit {
   details!: Details;

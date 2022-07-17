@@ -1,0 +1,139 @@
+{
+  "configVersion": 1,
+  "timestamp": 1658089286023,
+  "index": "Vacuole/index.html",
+  "assetGroups": [
+    {
+      "name": "vacuole",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "Vacuole/index.html",
+        "Vacuole/main.991ac74c924a19633d81.js",
+        "Vacuole/manifest.webmanifest",
+        "Vacuole/polyfills.6e10c0fd4056d5e48c73.js",
+        "Vacuole/runtime.aa99f4b0556a7e8f06fc.js",
+        "Vacuole/styles.317c34641acee9a9acbe.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "Vacuole/assets/about/about.svg",
+        "Vacuole/assets/auth/login-bg.svg",
+        "Vacuole/assets/auth/login.svg",
+        "Vacuole/assets/auth/signup.svg",
+        "Vacuole/assets/auth/welcome.svg",
+        "Vacuole/assets/icons/icon-128x128.png",
+        "Vacuole/assets/icons/icon-144x144.png",
+        "Vacuole/assets/icons/icon-152x152.png",
+        "Vacuole/assets/icons/icon-192x192.png",
+        "Vacuole/assets/icons/icon-384x384.png",
+        "Vacuole/assets/icons/icon-48x48.png",
+        "Vacuole/assets/icons/icon-512x512.png",
+        "Vacuole/assets/icons/icon-72x72.png",
+        "Vacuole/assets/icons/icon-96x96.png",
+        "Vacuole/assets/introduction/intro.svg",
+        "Vacuole/assets/landing-page/about-us.svg",
+        "Vacuole/assets/landing-page/collaborate.svg",
+        "Vacuole/assets/landing-page/collection.svg",
+        "Vacuole/assets/landing-page/download.svg",
+        "Vacuole/assets/landing-page/future.svg",
+        "Vacuole/assets/landing-page/mobile.svg",
+        "Vacuole/assets/landing-page/save.svg",
+        "Vacuole/assets/landing-page/team.svg",
+        "Vacuole/assets/landing-page/undraw_Messaging_app_re_aytg.svg",
+        "Vacuole/assets/landing-page/undraw_Team_re_0bfe.svg",
+        "Vacuole/assets/landing-page/undraw_Web_developer_re_h7ie (1).svg",
+        "Vacuole/assets/landing-page/undraw_medical_research_qg4d.svg",
+        "Vacuole/assets/landing-page/update.svg",
+        "Vacuole/assets/linkedin.svg",
+        "Vacuole/assets/organism-card/not-found.svg",
+        "Vacuole/assets/twitter.svg",
+        "Vacuole/assets/undraw_page_not_found_su-7-k.svg",
+        "Vacuole/assets/vacuolelogo-white.png",
+        "Vacuole/assets/vacuolelogo-white.svg",
+        "Vacuole/assets/vacuolelogo.png",
+        "Vacuole/assets/vacuolelogo.svg",
+        "Vacuole/login-bg.040429457909e812f6e7.svg",
+        "Vacuole/welcome.12163022bff069c48d15.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "Vacuole/assets/about/about.svg": "95f8eff7851a8994c10286c494015d80d587f31b",
+    "Vacuole/assets/auth/login-bg.svg": "4102288e3da2b2817d719d7e9652495d5aa145fe",
+    "Vacuole/assets/auth/login.svg": "cfbf500f562e6ead3d698f49c9cf6a8c04f48b20",
+    "Vacuole/assets/auth/signup.svg": "bbbb04a56a4dfbd6b222b4b9eb5da99d44049295",
+    "Vacuole/assets/auth/welcome.svg": "f85c4c012b4c694150ff329f6112c35e8bc86be7",
+    "Vacuole/assets/icons/icon-128x128.png": "578cd5a9bc99706fc7d38d6f09545f16dcc48a28",
+    "Vacuole/assets/icons/icon-144x144.png": "d30caed41a0d34bac9ba928df4eb4aeb12a79814",
+    "Vacuole/assets/icons/icon-152x152.png": "d62f9763776d31203b18de985909a3885fe6f2fc",
+    "Vacuole/assets/icons/icon-192x192.png": "8f9005b736e6b04678bd94ff3605ec9aa3a72feb",
+    "Vacuole/assets/icons/icon-384x384.png": "c42ba6c7faffacbbcfac024f804312697dee5a53",
+    "Vacuole/assets/icons/icon-48x48.png": "029d4cfe90482b417633c1cc9edd9401ccc77706",
+    "Vacuole/assets/icons/icon-512x512.png": "6d3e58547b02c867bfcc855bebec7ce45e771ced",
+    "Vacuole/assets/icons/icon-72x72.png": "97f33a7eea8b40ec20cf089acd4fde5b43a84ff9",
+    "Vacuole/assets/icons/icon-96x96.png": "62a762ab6dedbc9c0394cb7254b404a7c015f97a",
+    "Vacuole/assets/introduction/intro.svg": "bb456dfad05dae3b760e1ce958628576a3bd77be",
+    "Vacuole/assets/landing-page/about-us.svg": "ad5925a82ed70093176ebb256c1bd3f97ffd915d",
+    "Vacuole/assets/landing-page/collaborate.svg": "23ee1caace773caae1045a9ebff3060c87ae414e",
+    "Vacuole/assets/landing-page/collection.svg": "0931436606089efe4a188b022299b6d0ef057d5b",
+    "Vacuole/assets/landing-page/download.svg": "356a9ff32b4e5ba8c717d548d3db39d1f0d8f634",
+    "Vacuole/assets/landing-page/future.svg": "fb5cf0bd73b59cb464df39eb8612a4b8839922a8",
+    "Vacuole/assets/landing-page/mobile.svg": "30112594aeaf5328fd9391cb6701100c4e12d623",
+    "Vacuole/assets/landing-page/save.svg": "17da45f589e673c78b66033590ee9f20c91b72a3",
+    "Vacuole/assets/landing-page/team.svg": "626a12a8069f765a162e4055b3a06259dcca680c",
+    "Vacuole/assets/landing-page/undraw_Messaging_app_re_aytg.svg": "c148bda647537c995a4996e6a70a2e4bf293c88e",
+    "Vacuole/assets/landing-page/undraw_Team_re_0bfe.svg": "74759784496f79985e17f255cee60fd857847d6a",
+    "Vacuole/assets/landing-page/undraw_Web_developer_re_h7ie (1).svg": "d6d2eed8e2da81aeda6f95d0ff2a2f5202d73dcc",
+    "Vacuole/assets/landing-page/undraw_medical_research_qg4d.svg": "15d7a45e8471d35f1c8cf4519ee8a3d6580a1507",
+    "Vacuole/assets/landing-page/update.svg": "e54430120d01a2764857d37319269cd06b5cb5e2",
+    "Vacuole/assets/linkedin.svg": "3298e0dfbd59093cd5a7719b839e3be1ac4673c1",
+    "Vacuole/assets/organism-card/not-found.svg": "5f517142de94aa9fb4a1e7a070c9d5dfc40c0a3c",
+    "Vacuole/assets/twitter.svg": "860969c663d344f70c547391a0e4b2087b807b73",
+    "Vacuole/assets/undraw_page_not_found_su-7-k.svg": "0cfdef5c426310c480ec83c93a6755b322370717",
+    "Vacuole/assets/vacuolelogo-white.png": "07ed8ef34c3b2ee5574c812cc21c68ef2ae3ce21",
+    "Vacuole/assets/vacuolelogo-white.svg": "4b30c493cdd46098e8312ae148e3a3cd7465fae1",
+    "Vacuole/assets/vacuolelogo.png": "9a06cf78168a27d5258c7b95d343bc09f3c0bb44",
+    "Vacuole/assets/vacuolelogo.svg": "64f7ca54dc931e72177ee427c19d3db146eb1e93",
+    "Vacuole/index.html": "957bd1d5692cd92613261a828e5765c9a4c8b7f0",
+    "Vacuole/login-bg.040429457909e812f6e7.svg": "4102288e3da2b2817d719d7e9652495d5aa145fe",
+    "Vacuole/main.991ac74c924a19633d81.js": "261a1b5c8e6138a05929937cfd454a39ad61ab95",
+    "Vacuole/manifest.webmanifest": "9c7dae1c58ede61171441710d364ab8ed3487013",
+    "Vacuole/polyfills.6e10c0fd4056d5e48c73.js": "3f5057995907284a673de461238f7f0a310259c4",
+    "Vacuole/runtime.aa99f4b0556a7e8f06fc.js": "95f9820187344741a82c63ae9756b8ee23393eb9",
+    "Vacuole/styles.317c34641acee9a9acbe.css": "f68e5ba767faea56ed962cb189dacccd85969368",
+    "Vacuole/welcome.12163022bff069c48d15.svg": "f85c4c012b4c694150ff329f6112c35e8bc86be7"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

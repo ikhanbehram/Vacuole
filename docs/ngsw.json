@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1660164529902,
+  "timestamp": 1660164818054,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -108,7 +108,7 @@
     "/assets/vacuolelogo-white.svg": "4b30c493cdd46098e8312ae148e3a3cd7465fae1",
     "/assets/vacuolelogo.png": "9a06cf78168a27d5258c7b95d343bc09f3c0bb44",
     "/assets/vacuolelogo.svg": "64f7ca54dc931e72177ee427c19d3db146eb1e93",
-    "/index.html": "e3298e6220200707e2887dc5888e4a5fbea64a06",
+    "/index.html": "66e25d2d412f8641ebcf9b698bd55965fd412cc4",
     "/login-bg.040429457909e812f6e7.svg": "4102288e3da2b2817d719d7e9652495d5aa145fe",
     "/main.991ac74c924a19633d81.js": "261a1b5c8e6138a05929937cfd454a39ad61ab95",
     "/manifest.webmanifest": "9c7dae1c58ede61171441710d364ab8ed3487013",
